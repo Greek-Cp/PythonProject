@@ -1,15 +1,15 @@
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QApplication, QLabel, QWidget, QGridLayout
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtCore import QTimer, Qt
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QApplication, QLabel, QWidget, QGridLayout , QInputDialog
+from PyQt5.QtGui import QPixmap , QImage , QPainter, QTransform
+from PyQt5.QtCore import QTimer, Qt, QRect
 import sys
-
+sys.path.append('./lib_app')  # Assuming lib_app is in the same directory level as your main script
+from lib_app.file_util import FileUtil
+from geometry_operation import GeometryOperation
 class Ui_MainWindow(QMainWindow):
     def __init__(self):
         super(Ui_MainWindow, self).__init__()
         self.setupUi(self)
         self.setStyleSheet("background-color: lightgrey;")
-        
-        # Setup timer for title animation
         self.timer = QTimer()
         self.timer.timeout.connect(self.animate_title)
         self.counter = 0
@@ -32,16 +32,14 @@ class Ui_MainWindow(QMainWindow):
         self.menubar = self.menuBar()
 
         self.menuFile = self.menubar.addMenu("File")
-
         self.actionOpen = self.menuFile.addAction("Open Image")
-        self.actionOpen.triggered.connect(self.open_image)
+        self.actionOpen.triggered.connect(lambda: FileUtil.open_image(self))
 
         self.actionSave = self.menuFile.addAction("Save Image")
-        self.actionSave.triggered.connect(self.save_image)
-        
+        self.actionSave.triggered.connect(lambda: FileUtil.save_image(self))
         
         self.actionExit = self.menuFile.addAction("Exit")
-        self.actionExit.triggered.connect(self.exit_application)
+        self.actionExit.triggered.connect(FileUtil.exit_application)
         
             # New Geometric Operation Menu
         self.menuGeomOp = self.menubar.addMenu("Geometric Operation")
@@ -52,6 +50,7 @@ class Ui_MainWindow(QMainWindow):
         # Scaling Non Uniform
         self.actionScalingNonUniform = self.menuGeomOp.addAction("Scaling Non Uniform")
         
+
         # Cropping
         self.actionCropping = self.menuGeomOp.addAction("Cropping")
         
@@ -80,26 +79,59 @@ class Ui_MainWindow(QMainWindow):
         self.afterImageView.setStyleSheet("border: 2px solid black;")
         self.afterImageView.setScaledContents(True)
         grid_layout.addWidget(self.afterImageView, 0, 1)
-        # Add this new method
-    def exit_application(self):
-        QApplication.quit()
         
+        # Replace your existing QAction connections with these
+        self.actionScalingUniform.triggered.connect(lambda: GeometryOperation.scaling_uniform(self.pixmap, self.afterImageView))
+        self.actionScalingNonUniform.triggered.connect(lambda: GeometryOperation.scaling_non_uniform(self.pixmap, self.afterImageView))
+        self.actionFlipHorizontal.triggered.connect(lambda: GeometryOperation.flip_horizontal(self.pixmap, self.afterImageView))
+        self.actionFlipVertical.triggered.connect(lambda: GeometryOperation.flip_vertical(self.pixmap, self.afterImageView))
+        self.actionCustomFlip.triggered.connect(lambda: GeometryOperation.custom_flip(self.pixmap, self.afterImageView))
+        self.actionLeft.triggered.connect(lambda: GeometryOperation.action_left(self.pixmap, self.afterImageView))
+        self.actionRight.triggered.connect(lambda: GeometryOperation.action_right(self.pixmap, self.afterImageView))
+        self.actionTop.triggered.connect(lambda: GeometryOperation.action_top(self.pixmap, self.afterImageView))
+        self.actionBottom.triggered.connect(lambda: GeometryOperation.action_bottom(self.pixmap, self.afterImageView))
+        self.menuRotasi.addAction("Rotate Image", lambda: GeometryOperation.rotate_image(self.pixmap, self.afterImageView))
+
+
+
+        # Add this new method
+    def scaling_uniform(self):
+        if self.pixmap:
+            img: QImage = self.pixmap.toImage()
+            width, ok = QInputDialog.getInt(self, 'Input', 'Enter the width:', min=1, max=5000)
+            if ok:
+                height = int(width * img.height() / img.width())  # Maintain aspect ratio
+                scaled_img = img.scaled(width, height, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                self.afterImageView.setPixmap(QPixmap.fromImage(scaled_img))
+
+    def scaling_non_uniform(self):
+        if self.pixmap:
+            img: QImage = self.pixmap.toImage()
+            width, ok1 = QInputDialog.getInt(self, 'Input', 'Enter the width:', min=1, max=5000)
+            height, ok2 = QInputDialog.getInt(self, 'Input', 'Enter the height:', min=1, max=5000)
+            if ok1 and ok2:
+                scaled_img = img.scaled(width, height, Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
+                self.afterImageView.setPixmap(QPixmap.fromImage(scaled_img))
+
+
+    def rotate_image(self):
+        if self.pixmap:
+            # Get the rotation angle from user
+            angle, ok = QInputDialog.getDouble(self, "Rotate", "Enter rotation angle:", 0, -360, 360, 2)
+            
+            if ok:
+                # Perform rotation
+                transform = QTransform().rotate(angle)
+                rotated_pixmap = self.pixmap.transformed(transform, Qt.SmoothTransformation)
+                
+                # Update the QLabel with the rotated image
+                self.afterImageView.setPixmap(rotated_pixmap)
+
+
     def animate_title(self):
         titles = ["My Dark Mode App", "Welcome!", "Enjoy!", ""]
         self.setWindowTitle(titles[self.counter])
         self.counter = (self.counter + 1) % len(titles)
-
-    def open_image(self):
-        options = QFileDialog.Options()
-        filepath, _ = QFileDialog.getOpenFileName(self, "Open Image", "", "Images (*.png *.jpg *.jpeg)", options=options)
-        if filepath:
-            self.pixmap = QPixmap(filepath)
-            self.beforeImageView.setPixmap(self.pixmap)
-
-    def save_image(self):
-        filepath, _ = QFileDialog.getSaveFileName(self, "Save Image", "", "PNG (*.png);;JPEG (*.jpg *.jpeg);;All Files (*)")
-        if filepath:
-            self.pixmap.save(filepath)
 
     def resize_images(self, event):
         size = self.size()

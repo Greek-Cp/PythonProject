@@ -9,8 +9,38 @@ tolong tambahkan menu
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = self.menuBar()
 
-       
-  
+
+kode tambah fungsi 
+
+buatkan saya fungsi citra rotasi image  tanpa menggunakan cv2 
+penjelasan fitur: 
+tolong buatkan saya fitur rotasi gambar pada citra vision , dimana user dapat menginputkan
+rotasi image pada dialog yang muncul
+
+
+# Rotasi Submenu
+        self.menuRotasi = self.menuGeomOp.addMenu("Rotasi")
+
+hasil pemrosesan gambar akan ditaruh di  label afterImageView
+       self.afterImageView = QLabel(self.centralwidget)
+       self.afterImageView.setStyleSheet("border: 2px solid black;")
+       self.afterImageView.setScaledContents(True)
+       grid_layout.addWidget(self.afterImageView, 0, 1)
+
+dan dibawah ini adalah kode saya untuk mengambil gambar dari open file dan menyimpan
+def open_image(self):
+        options = QFileDialog.Options()
+        filepath, _ = QFileDialog.getOpenFileName(self, "Open Image", "", "Images (*.png *.jpg *.jpeg)", options=options)
+        if filepath:
+            self.pixmap = QPixmap(filepath)
+            self.beforeImageView.setPixmap(self.pixmap)
+
+    def save_image(self):
+        filepath, _ = QFileDialog.getSaveFileName(self, "Save Image", "", "PNG (*.png);;JPEG (*.jpg *.jpeg);;All Files (*)")
+        if filepath:
+            self.pixmap.save(filepath)
+
+
 Geometrict Operation
  - Scalling Unifrom
  - Scaling Non Uniform 
