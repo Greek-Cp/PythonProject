@@ -254,6 +254,62 @@ class Ui_MainWindow(QMainWindow):
         self.actionUnsharpMasking = QAction("Unsharp Masking", self)
         self.actionUnsharpMasking.triggered.connect(self.apply_unsharp_masking)
         self.menuKonvolusi.addAction(self.actionUnsharpMasking)
+        roi_menu = self.menubar.addMenu("ROI")
+        
+        # Add actions for Region Of Interest and Background Removal in the "ROI" menu
+        self.actionRegionOfInterest = QAction("Region Of Interest", self)
+        roi_menu.addAction(self.actionRegionOfInterest)
+        
+        self.actionBackgroundRemoval = QAction("Background Removal", self)
+        roi_menu.addAction(self.actionBackgroundRemoval)
+        # Create the "Morfologi" menu
+        morfologi_menu = self.menubar.addMenu("Morfologi")
+
+        # Add submenus for Dilasi, Erosi, Opening, and Closing in the "Morfologi" menu
+        dilasi_submenu = QMenu("Dilasi", self)
+        morfologi_menu.addMenu(dilasi_submenu)
+
+        erosi_submenu = QMenu("Erosi", self)
+        morfologi_menu.addMenu(erosi_submenu)
+
+        opening_submenu = QMenu("Opening", self)
+        morfologi_menu.addMenu(opening_submenu)
+
+        closing_submenu = QMenu("Closing", self)
+        morfologi_menu.addMenu(closing_submenu)
+
+        # Add actions for Dilasi, Erosi, Opening, and Closing submenus
+        square3_dilasi_action = QAction("Square 3", self)
+        square3_dilasi_action.triggered.connect(lambda: self.apply_dilasi(3))
+        dilasi_submenu.addAction(square3_dilasi_action)
+
+        square5_dilasi_action = QAction("Square 5", self)
+        square5_dilasi_action.triggered.connect(lambda: self.apply_dilasi(5))
+        dilasi_submenu.addAction(square5_dilasi_action)
+
+        cross3_dilasi_action = QAction("Cross 3", self)
+        cross3_dilasi_action.triggered.connect(lambda: self.apply_dilasi(0))  # 0 to use the default 3x3 kernel
+        dilasi_submenu.addAction(cross3_dilasi_action)
+
+        square3_erosi_action = QAction("Square 3", self)
+        square3_erosi_action.triggered.connect(lambda: self.apply_erosi(3))
+        erosi_submenu.addAction(square3_erosi_action)
+
+        square5_erosi_action = QAction("Square 5", self)
+        square5_erosi_action.triggered.connect(lambda: self.apply_erosi(5))
+        erosi_submenu.addAction(square5_erosi_action)
+
+        cross3_erosi_action = QAction("Cross 3", self)
+        cross3_erosi_action.triggered.connect(lambda: self.apply_erosi(0))  # 0 to use the default 3x3 kernel
+        erosi_submenu.addAction(cross3_erosi_action)
+
+        square9_opening_action = QAction("Square 9", self)
+        square9_opening_action.triggered.connect(self.apply_opening)
+        opening_submenu.addAction(square9_opening_action)
+
+        square9_closing_action = QAction("Square 9", self)
+        square9_closing_action.triggered.connect(self.apply_closing)
+        closing_submenu.addAction(square9_closing_action)
         self.actionBrightness.triggered.connect(self.adjust_brightness)
         self.actionContrast.triggered.connect(self.adjust_contrast)
         self.actionThreshold.triggered.connect(self.apply_threshold)
@@ -305,6 +361,115 @@ class Ui_MainWindow(QMainWindow):
             self.afterImageView.setPixmap(pixmap)
 
 
+    def apply_dilasi(self, kernel_size):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Define the kernel for Dilasi
+            if kernel_size == 3:
+                kernel = np.ones((3, 3), np.uint8)
+            elif kernel_size == 5:
+                kernel = np.ones((5, 5), np.uint8)
+            else:  # Default to a 3x3 square kernel
+                kernel = np.ones((3, 3), np.uint8)
+
+            # Apply Dilasi operation
+            dilated_image = cv2.dilate(grayscale_image, kernel, iterations=1)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(dilated_image, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the processed image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+    def apply_erosi(self, kernel_size):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Define the kernel for Erosi
+            if kernel_size == 3:
+                kernel = np.ones((3, 3), np.uint8)
+            elif kernel_size == 5:
+                kernel = np.ones((5, 5), np.uint8)
+            else:  # Default to a 3x3 square kernel
+                kernel = np.ones((3, 3), np.uint8)
+
+            # Apply Erosi operation
+            eroded_image = cv2.erode(grayscale_image, kernel, iterations=1)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(eroded_image, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the processed image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+    def apply_opening(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Define a 9x9 square kernel for Opening
+            kernel = np.ones((9, 9), np.uint8)
+
+            # Apply Opening operation
+            opened_image = cv2.morphologyEx(grayscale_image, cv2.MORPH_OPEN, kernel)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(opened_image, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the processed image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+    def apply_closing(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Define a 9x9 square kernel for Closing
+            kernel = np.ones((9, 9), np.uint8)
+
+            # Apply Closing operation
+            closed_image = cv2.morphologyEx(grayscale_image, cv2.MORPH_CLOSE, kernel)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(closed_image, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the processed image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
     def apply_fuzzy_cmeans(self):
         if hasattr(self, 'pixmap'):
             # Convert the QPixmap to a numpy array
