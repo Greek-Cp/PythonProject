@@ -43,6 +43,34 @@ class Ui_MainWindow(QMainWindow):
         self.actionExit = self.menuFile.addAction("Exit")
         self.actionExit.triggered.connect(self.exit_application)
         
+            # New Geometric Operation Menu
+        self.menuGeomOp = self.menubar.addMenu("Geometric Operation")
+        
+        # Scalling Uniform
+        self.actionScalingUniform = self.menuGeomOp.addAction("Scaling Uniform")
+        
+        # Scaling Non Uniform
+        self.actionScalingNonUniform = self.menuGeomOp.addAction("Scaling Non Uniform")
+        
+        # Cropping
+        self.actionCropping = self.menuGeomOp.addAction("Cropping")
+        
+        # Flipping Submenu
+        self.menuFlipping = self.menuGeomOp.addMenu("Flipping")
+        self.actionFlipHorizontal = self.menuFlipping.addAction("Flip Horizontal")
+        self.actionFlipVertical = self.menuFlipping.addAction("Flip Vertical")
+        self.actionCustomFlip = self.menuFlipping.addAction("Custom Flip")
+        
+        # Translasi Submenu
+        self.menuTranslasi = self.menuGeomOp.addMenu("Translasi")
+        self.actionLeft = self.menuTranslasi.addAction("Left")
+        self.actionRight = self.menuTranslasi.addAction("Right")
+        self.actionTop = self.menuTranslasi.addAction("Top")
+        self.actionBottom = self.menuTranslasi.addAction("Bottom")
+        
+        # Rotasi Submenu
+        self.menuRotasi = self.menuGeomOp.addMenu("Rotasi")
+        self.actionCustomRotasi = self.menuRotasi.addAction("Custom Rotasi")
         self.beforeImageView = QLabel(self.centralwidget)
         self.beforeImageView.setStyleSheet("border: 2px solid black;")
         self.beforeImageView.setScaledContents(True)

@@ -1,3 +1,16 @@
+kode tambah menu 
+tolong tambahkan menu 
+ def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(1200, 900)
+        grid_layout = QGridLayout()
+        self.centralwidget = QWidget(MainWindow)
+        self.centralwidget.setLayout(grid_layout)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = self.menuBar()
+
+       
+  
 Geometrict Operation
  - Scalling Unifrom
  - Scaling Non Uniform 
@@ -13,8 +26,81 @@ Geometrict Operation
   * Bottom
  - Rotasi
   * Custom Rotasi 
+{
 
 
+
+
+
+}
 View Histogram 
- - 
-   
+ - Histogram Input
+ - Histogram Output
+ - Histogram Input Output
+
+Colors 
+ - Brightness
+ - Contrast
+ - Threshold 
+ - Invers 
+ 
+Bith-Depth
+ - 1 Bit
+ - 2 Bit
+ - 3 Bit 
+ - 4 Bit
+ - 5 Bit 
+ - 6 Bit 
+ - 7 Bit 
+
+Image Proccesing 
+ - Histogram Equalization
+ - FHE RGB 
+ - FHE GRAYSCALE 
+ - Filter 
+   * Low Pass Filter 
+   * High Pass Filter
+
+Konvulusi
+ - Identity
+ - Edge Detection 
+   * Sobel 
+   * Prewit 
+   * Robert 
+ - Sharpen 
+ - Grausian Blur 
+   * 3 x 3 
+   * 5 x 5 
+ - Unsharp Masking 
+
+Segmentasi Citra 
+  - Filter Gabor 
+  - Fuzzy C-Means Clustering
+  - K-Means Clustering
+  - ruang wrna HSV
+  - Multi Thresholding dan K-Means Clustering
+  - Grayscale metode K-Means Clustering 
+
+ROI 
+  - Region Of Interest
+Background Removal 
+
+Morfologi 
+  - Dilasi
+    * Square 3 
+    * Square 5
+    * Cross 3
+  - Erosi
+    * Square 3 
+    * Square 5
+    * Cross 3
+  - Opening 
+    * Square 9
+  - Closing 
+    * Square 9
+
+Ekstraksi Fitur
+  - Warna: RGB to HSV
+  - Warna : GB to YCRCb
+
+
