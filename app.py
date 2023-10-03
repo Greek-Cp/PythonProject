@@ -6,6 +6,7 @@ import sys
 import numpy as np 
 from matplotlib import cm
 import cv2
+import pandas as pd
 from scipy import signal
 sys.path.append('./lib_app')  # Assuming lib_app is in the same directory level as your main script
 from lib_app.file_util import FileUtil
@@ -310,6 +311,19 @@ class Ui_MainWindow(QMainWindow):
         square9_closing_action = QAction("Square 9", self)
         square9_closing_action.triggered.connect(self.apply_closing)
         closing_submenu.addAction(square9_closing_action)
+    # Create the "Ekstraksi Fitur" menu
+        ekstraksi_fitur_menu = self.menubar.addMenu("Ekstraksi Fitur")
+
+        # Add submenu "Warna: RGB to HSV" to "Ekstraksi Fitur"
+        rgb_to_hsv_action = QAction("Warna: RGB to HSV", self)
+        rgb_to_hsv_action.triggered.connect(self.rgb_to_hsv)
+        ekstraksi_fitur_menu.addAction(rgb_to_hsv_action)
+
+        # Add submenu "Warna: RGB to YCRCb" to "Ekstraksi Fitur"
+        rgb_to_ycrcb_action = QAction("Warna: RGB to YCRCb", self)
+        rgb_to_ycrcb_action.triggered.connect(self.rgb_to_ycrcb)
+        ekstraksi_fitur_menu.addAction(rgb_to_ycrcb_action)
+
         self.actionBrightness.triggered.connect(self.adjust_brightness)
         self.actionContrast.triggered.connect(self.adjust_contrast)
         self.actionThreshold.triggered.connect(self.apply_threshold)
@@ -326,7 +340,68 @@ class Ui_MainWindow(QMainWindow):
         self.actionFHEGrayscale.triggered.connect(self.fuzzy_histogram_equalization_grayscale)  # Connect it to the function
         self.actionLowPassFilter.triggered.connect(self.apply_low_pass_filter)  # Connect it to the function
         self.actionHighPassFilter.triggered.connect(self.apply_high_pass_filter)  # Connect it to the function
+# Add the corresponding functions for RGB to HSV and RGB to YCRCb conversions
+    def rgb_to_hsv(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
 
+            # Convert RGBA to BGR
+            bgr_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2BGR)
+
+            # Convert BGR to HSV
+            hsv_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2HSV)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(hsv_image, width, height, width * 3, QImage.Format_RGB888)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the processed image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+            # Extract color data and save to Excel
+            original_image_data = pd.DataFrame(bgr_image.reshape(-1, 3), columns=["R", "G", "B"])
+            hsv_image_data = pd.DataFrame(hsv_image.reshape(-1, 3), columns=["H", "S", "V"])
+            
+            # Export to Excel
+            with pd.ExcelWriter('color_extraction_data.xlsx') as writer:
+                original_image_data.to_excel(writer, sheet_name='Original Image Data', index=False)
+                hsv_image_data.to_excel(writer, sheet_name='HSV Image Data', index=False)
+
+    def rgb_to_ycrcb(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to BGR
+            bgr_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2BGR)
+
+            # Convert BGR to YCRCb
+            ycrcb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2YCR_CB)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(ycrcb_image, width, height, width * 3, QImage.Format_RGB888)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the processed image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+            # Extract color data and save to Excel
+            original_image_data = pd.DataFrame(bgr_image.reshape(-1, 3), columns=["R", "G", "B"])
+            ycrcb_image_data = pd.DataFrame(ycrcb_image.reshape(-1, 3), columns=["Y", "Cr", "Cb"])
+            
+            # Export to Excel
+            with pd.ExcelWriter('color_extraction_data.xlsx') as writer:
+                original_image_data.to_excel(writer, sheet_name='Original Image Data', index=False)
+                ycrcb_image_data.to_excel(writer, sheet_name='YCRCb Image Data', index=False)
     def apply_filter_gabor(self):
         if hasattr(self, 'pixmap'):
             # Convert the QPixmap to a numpy array
