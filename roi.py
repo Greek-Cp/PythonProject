@@ -9,8 +9,31 @@ class Ui_MainWindow(QMainWindow):
     def __init__(self):
         super(Ui_MainWindow, self).__init__()
         self.setupUi(self)
-        self.setStyleSheet("background-color: lightgrey;")
-        
+        dark_stylesheet = '''
+            QWidget {
+                background-color: #1F1F1F;
+                color: #FFFFFF;
+            }
+            QLabel {
+                border: 2px solid #FFFFFF;
+                border-radius: 4px;
+            }
+            QMenu::item:selected {
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C147E9, stop:1 #8823D5);
+                color: #FFFFFF;
+            }
+            QMenuBar::item:selected {
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C147E9, stop:1 #8823D5);
+                color: #FFFFFF;
+                border-radius: 8px;
+                border: 1px solid #FFFFFF;
+            }
+            QMenuBar::item {
+                padding: 5px 10px;
+            }
+            '''
+
+        self.setStyleSheet(dark_stylesheet)
         # Setup timer for title animation
         self.timer = QTimer()
         self.timer.timeout.connect(self.animate_title)

@@ -15,7 +15,31 @@ class Ui_MainWindow(QMainWindow):
     def __init__(self):
         super(Ui_MainWindow, self).__init__()
         self.setupUi(self)
-        self.setStyleSheet("background-color: lightgrey;")
+        dark_stylesheet = '''
+            QWidget {
+                background-color: #1F1F1F;
+                color: #FFFFFF;
+            }
+            QLabel {
+                border: 2px solid #FFFFFF;
+                border-radius: 4px;
+            }
+            QMenu::item:selected {
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C147E9, stop:1 #8823D5);
+                color: #FFFFFF;
+            }
+            QMenuBar::item:selected {
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C147E9, stop:1 #8823D5);
+                color: #FFFFFF;
+                border-radius: 8px;
+                border: 1px solid #FFFFFF;
+            }
+            QMenuBar::item {
+                padding: 5px 10px;
+            }
+            '''
+
+        self.setStyleSheet(dark_stylesheet)
         self.timer = QTimer()
         self.timer.timeout.connect(self.animate_title)
         self.counter = 0
@@ -50,6 +74,7 @@ class Ui_MainWindow(QMainWindow):
             # New Geometric Operation Menu
         self.menuGeomOp = self.menubar.addMenu("Geometric Operation")
         
+       
         # Scalling Uniform
         self.actionScalingUniform = self.menuGeomOp.addAction("Scaling Uniform")
         
@@ -77,6 +102,14 @@ class Ui_MainWindow(QMainWindow):
         # Rotasi Submenu
         self.menuRotasi = self.menuGeomOp.addMenu("Rotasi")
         self.actionCustomRotasi = self.menuRotasi.addAction("Custom Rotasi")
+        self.menuOperasiAritmatik = self.menubar.addMenu("Operasi Aritmatika")
+        self.actionAdd = self.menuOperasiAritmatik.addAction("Penjumlahan")
+        self.actionSubtract = self.menuOperasiAritmatik.addAction("Pengurangan")
+        self.actionMultiply = self.menuOperasiAritmatik.addAction("Perkalian")
+        self.actionDivide = self.menuOperasiAritmatik.addAction("Pembagian")
+        self.actionAnd = self.menuOperasiAritmatik.addAction("AND")
+        self.actionXor = self.menuOperasiAritmatik.addAction("XOR")
+        self.actionNot = self.menuOperasiAritmatik.addAction("NOT")
         self.beforeImageView = QLabel(self.centralwidget)
         self.beforeImageView.setStyleSheet("border: 2px solid black;")
         self.beforeImageView.setScaledContents(True)
@@ -341,6 +374,160 @@ class Ui_MainWindow(QMainWindow):
         self.actionLowPassFilter.triggered.connect(self.apply_low_pass_filter)  # Connect it to the function
         self.actionHighPassFilter.triggered.connect(self.apply_high_pass_filter)  # Connect it to the function
 # Add the corresponding functions for RGB to HSV and RGB to YCRCb conversions
+    def perform_addition(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = min(int(color1[0]) + int(color2[0]), 255)
+                    g_result = min(int(color1[1]) + int(color2[1]), 255)
+                    b_result = min(int(color1[2]) + int(color2[2]), 255)
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'Addition Result')
+            self.display_arithmetic_result(result)
+
+    def perform_subtraction(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = max(int(color1[0]) - int(color2[0]), 0)
+                    g_result = max(int(color1[1]) - int(color2[1]), 0)
+                    b_result = max(int(color1[2]) - int(color2[2]), 0)
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'Subtraction Result')
+            self.display_arithmetic_result(result)
+
+    def perform_multiplication(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = min(int(color1[0]) * int(color2[0]) // 255, 255)
+                    g_result = min(int(color1[1]) * int(color2[1]) // 255, 255)
+                    b_result = min(int(color1[2]) * int(color2[2]) // 255, 255)
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'Multiplication Result')
+            self.display_arithmetic_result(result)
+
+    def perform_division(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = 0 if int(color2[0]) == 0 else min(int(color1[0]) * 255 // int(color2[0]), 255)
+                    g_result = 0 if int(color2[1]) == 0 else min(int(color1[1]) * 255 // int(color2[1]), 255)
+                    b_result = 0 if int(color2[2]) == 0 else min(int(color1[2]) * 255 // int(color2[2]), 255)
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'Division Result')
+            self.display_arithmetic_result(result)
+
+    def perform_and_operation(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = int(color1[0]) & int(color2[0])
+                    g_result = int(color1[1]) & int(color2[1])
+                    b_result = int(color1[2]) & int(color2[2])
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'AND Result')
+            self.display_arithmetic_result(result)
+
+    def perform_xor_operation(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = int(color1[0]) ^ int(color2[0])
+                    g_result = int(color1[1]) ^ int(color2[1])
+                    b_result = int(color1[2]) ^ int(color2[2])
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'XOR Result')
+            self.display_arithmetic_result(result)
+
+    def perform_not_operation(self):
+        if hasattr(self, 'image1'):
+            height1, width1, _ = self.image1.shape
+            result = np.zeros((height1, width1, 3), dtype=np.uint8)
+
+            for x in range(width1):
+                for y in range(height1):
+                    color1 = self.image1[y, x]
+
+                    r_result = 255 - int(color1[0])
+                    g_result = 255 - int(color1[1])
+                    b_result = 255 - int(color1[2])
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'NOT Result')
+            self.display_arithmetic_result(result)
+
+    def display_arithmetic_result(self, result):
+        result_image = QImage(result.data, result.shape[1], result.shape[0], result.shape[1] * 3, QImage.Format_RGB888)
+        self.hasilPerhitunganAritmatika.setPixmap(QPixmap.fromImage(result_image))
+        self.hasilPerhitunganAritmatika.setScaledContents(True)
     def rgb_to_hsv(self):
         if hasattr(self, 'pixmap'):
             # Convert the QPixmap to a numpy array
