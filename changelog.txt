@@ -1,0 +1,20 @@
+Geometrict Operation
+ - Scalling Unifrom
+ - Scaling Non Uniform 
+ - Cropping
+ - Flipping 
+   * Flip Horizontal 
+   * Flip Vertikal
+   * Custom Flip 
+ - Translasi
+  * Left 
+  * Right
+  * Top
+  * Bottom
+ - Rotasi
+  * Custom Rotasi 
+
+
+View Histogram 
+ - 
+   
