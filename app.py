@@ -222,6 +222,33 @@ class Ui_MainWindow(QMainWindow):
 
         # Add the "Gaussian Blur" submenu to "Konvolusi"
         self.menuKonvolusi.addMenu(self.submenuGaussianBlur)
+          # Create the "Filter Gabor" submenu item
+        self.menuSegmentasiCitra = self.menuBar().addMenu("Segmentasi Citra")
+        self.actionFilterGabor = QAction("Filter Gabor", self)
+        self.actionFilterGabor.triggered.connect(self.apply_filter_gabor)
+        self.menuSegmentasiCitra.addAction(self.actionFilterGabor)
+
+        # Create the "Fuzzy C-Means Clustering" submenu item
+        self.actionFuzzyCMeans = QAction("Fuzzy C-Means Clustering", self)
+        self.actionFuzzyCMeans.triggered.connect(self.apply_fuzzy_cmeans)
+
+        # Create the "K-Means Clustering" submenu item
+        self.actionKMeans = QAction("K-Means Clustering", self)
+        self.actionKMeans.triggered.connect(self.apply_kmeans)
+
+        # Create the "Ruang Warna HSV" submenu item
+        self.actionHSVColorSpace = QAction("Ruang Warna HSV", self)
+        self.actionHSVColorSpace.triggered.connect(self.apply_hsv_color_space)
+        self.menuSegmentasiCitra.addAction(self.actionHSVColorSpace)
+
+        # Create the "Multi Thresholding dan K-Means Clustering" submenu item
+        self.actionMultiThresholdKMeans = QAction("Multi Thresholding dan K-Means Clustering", self)
+        self.actionMultiThresholdKMeans.triggered.connect(self.apply_multi_threshold_kmeans)
+        self.menuSegmentasiCitra.addAction(self.actionMultiThresholdKMeans)
+
+        # Create the "Grayscale metode K-Means Clustering" submenu item
+        self.actionGrayscaleKMeans = QAction("Grayscale metode K-Means Clustering", self)
+        self.actionGrayscaleKMeans.triggered.connect(self.apply_grayscale_kmeans)
 
         # Create the "Unsharp Masking" submenu item
         self.actionUnsharpMasking = QAction("Unsharp Masking", self)
@@ -243,6 +270,171 @@ class Ui_MainWindow(QMainWindow):
         self.actionFHEGrayscale.triggered.connect(self.fuzzy_histogram_equalization_grayscale)  # Connect it to the function
         self.actionLowPassFilter.triggered.connect(self.apply_low_pass_filter)  # Connect it to the function
         self.actionHighPassFilter.triggered.connect(self.apply_high_pass_filter)  # Connect it to the function
+
+    def apply_filter_gabor(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Define the Gabor kernel
+            kernel_size = 5
+            theta = 0.8
+            sigma = 5.0
+            lambda_ = 15.0
+            gamma = 0.02
+            gabor_kernel = cv2.getGaborKernel((kernel_size, kernel_size), sigma, theta, lambda_, gamma, 0, ktype=cv2.CV_32F)
+
+            # Apply Gabor filter
+            filtered_image = cv2.filter2D(grayscale_image, cv2.CV_32F, gabor_kernel)
+
+            # Normalize the output to the [0, 255] range
+            filtered_image = cv2.normalize(filtered_image, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8U)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(filtered_image, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the filtered image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+
+    def apply_fuzzy_cmeans(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to BGR
+            bgr_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2BGR)
+
+            # Apply Fuzzy C-Means Clustering
+            num_clusters = 3  # Adjust as needed
+            max_iterations = 100
+            epsilon = 0.2
+            criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, max_iterations, epsilon)
+            pixels = bgr_image.reshape((-1, 3)).astype(np.float32)
+            
+            # Use cv2.kmeans to perform clustering
+            _, labels, centers = cv2.kmeans(pixels, num_clusters, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
+
+            # Convert the labels back to the original image shape
+            segmented_image = labels.reshape(bgr_image.shape[:2]).astype(np.uint8)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(segmented_image, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the segmented image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+    def apply_kmeans(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Apply K-Means Clustering
+            num_clusters = 3  # Adjust as needed
+            criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.2)
+            _, labels, centers = cv2.kmeans(grayscale_image.reshape(-1, 1).astype(np.float32), num_clusters, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
+
+            # Reshape the labels to the original image shape
+            segmented_image = labels.reshape(grayscale_image.shape).astype(np.uint8)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(segmented_image, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the segmented image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+    def apply_hsv_color_space(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to BGR
+            bgr_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2BGR)
+
+            # Convert BGR to HSV
+            hsv_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2HSV)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(hsv_image.data, width, height, width * 3, QImage.Format_RGB888)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the HSV image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+    def apply_multi_threshold_kmeans(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Apply Multi-Thresholding
+            _, segmented_image = cv2.threshold(grayscale_image, 128, 255, cv2.THRESH_BINARY)
+
+            # Apply K-Means Clustering (optional)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(segmented_image, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the segmented image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+    def apply_grayscale_kmeans(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Apply K-Means Clustering
+            num_clusters = 3  # Adjust as needed
+            criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.2)
+            _, labels, centers = cv2.kmeans(grayscale_image.reshape(-1, 1).astype(np.float32), num_clusters, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
+
+            # Reshape the labels to the original image shape
+            segmented_image = labels.reshape(grayscale_image.shape).astype(np.uint8)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(segmented_image, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the segmented image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
 
     def fuzzy_histogram_equalization_grayscale(self):
         if hasattr(self, 'pixmap'):
