@@ -10,6 +10,7 @@ class FileUtil:
         if filepath:
             ui_instance.pixmap = QPixmap(filepath)
             ui_instance.beforeImageView.setPixmap(ui_instance.pixmap)
+            
 
     @staticmethod
     def save_image(ui_instance):

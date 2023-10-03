@@ -1,5 +1,17 @@
 kode tambah menu 
 tolong tambahkan menu 
+Konvulusi
+ - Identity
+ - Edge Detection 
+   * Sobel 
+   * Prewit 
+   * Robert 
+ - Sharpen 
+ - Grausian Blur 
+   * 3 x 3 
+   * 5 x 5 
+ - Unsharp Masking 
+ 
  def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1200, 900)
@@ -12,15 +24,22 @@ tolong tambahkan menu
 
 kode tambah fungsi 
 
-buatkan saya fungsi citra rotasi image  tanpa menggunakan cv2 
+buatkan saya fungsi citra Color brighthnes,contrast,threshold,invers dan bit-depth  tanpa menggunakan cv2 
 penjelasan fitur: 
-tolong buatkan saya fitur rotasi gambar pada citra vision , dimana user dapat menginputkan
-rotasi image pada dialog yang muncul
+tolong buatkan saya fitur Color brighthnes,contrast,threshold,invers dan bit-depth
+khusus untuk brighthnes , contrast, user dapat mengatur value nya melalui dialog 
 
-
-# Rotasi Submenu
-        self.menuRotasi = self.menuGeomOp.addMenu("Rotasi")
-
+        self.menuColors.addAction(self.actionBrightness)
+        self.menuColors.addAction(self.actionContrast)
+        self.menuColors.addAction(self.actionThreshold)
+        self.menuColors.addAction(self.actionInvers)
+         self.action1Bit = QAction("1 Bit", self)
+        self.action2Bit = QAction("2 Bit", self)
+        self.action3Bit = QAction("3 Bit", self)
+        self.action4Bit = QAction("4 Bit", self)
+        self.action5Bit = QAction("5 Bit", self)
+        self.action6Bit = QAction("6 Bit", self)
+        self.action7Bit = QAction("7 Bit", self)
 hasil pemrosesan gambar akan ditaruh di  label afterImageView
        self.afterImageView = QLabel(self.centralwidget)
        self.afterImageView.setStyleSheet("border: 2px solid black;")

@@ -1,7 +1,12 @@
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QApplication, QLabel, QWidget, QGridLayout , QInputDialog
-from PyQt5.QtGui import QPixmap , QImage , QPainter, QTransform
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QApplication, QLabel, QWidget, QGridLayout , QInputDialog,QAction, QMenu 
+from PyQt5.QtGui import QPixmap , QImage , QPainter, QTransform , QColor
 from PyQt5.QtCore import QTimer, Qt, QRect
+import matplotlib.pyplot as plt
 import sys
+import numpy as np 
+from matplotlib import cm
+import cv2
+from scipy import signal
 sys.path.append('./lib_app')  # Assuming lib_app is in the same directory level as your main script
 from lib_app.file_util import FileUtil
 from geometry_operation import GeometryOperation
@@ -49,10 +54,11 @@ class Ui_MainWindow(QMainWindow):
         
         # Scaling Non Uniform
         self.actionScalingNonUniform = self.menuGeomOp.addAction("Scaling Non Uniform")
-        
+
 
         # Cropping
         self.actionCropping = self.menuGeomOp.addAction("Cropping")
+        
         
         # Flipping Submenu
         self.menuFlipping = self.menuGeomOp.addMenu("Flipping")
@@ -79,7 +85,77 @@ class Ui_MainWindow(QMainWindow):
         self.afterImageView.setStyleSheet("border: 2px solid black;")
         self.afterImageView.setScaledContents(True)
         grid_layout.addWidget(self.afterImageView, 0, 1)
+            
+        # Add new 'View Histogram' menu
+        self.menuHistogram = QMenu(self.menubar)
+        self.menuHistogram.setTitle("View Histogram")
         
+        self.histogramInput = QAction("Histogram Input", self)
+        self.histogramOutput = QAction("Histogram Output", self)
+        self.histogramInputOutput = QAction("Histogram Input Output", self)
+
+        self.menuColors = self.menubar.addMenu("Colors")
+        self.actionBrightness = QAction("Brightness", self)
+        self.actionContrast = QAction("Contrast", self)
+        self.actionThreshold = QAction("Threshold", self)
+        self.actionInvers = QAction("Invers", self)
+        
+        self.menuColors.addAction(self.actionBrightness)
+        self.menuColors.addAction(self.actionContrast)
+        self.menuColors.addAction(self.actionThreshold)
+        self.menuColors.addAction(self.actionInvers)
+
+        # Bit-Depth Menu
+        self.menuBitDepth = self.menubar.addMenu("Bit-Depth")
+        self.action1Bit = QAction("1 Bit", self)
+        self.action2Bit = QAction("2 Bit", self)
+        self.action3Bit = QAction("3 Bit", self)
+        self.action4Bit = QAction("4 Bit", self)
+        self.action5Bit = QAction("5 Bit", self)
+        self.action6Bit = QAction("6 Bit", self)
+        self.action7Bit = QAction("7 Bit", self)
+        
+        self.menuBitDepth.addAction(self.action1Bit)
+        self.menuBitDepth.addAction(self.action2Bit)
+        self.menuBitDepth.addAction(self.action3Bit)
+        self.menuBitDepth.addAction(self.action4Bit)
+        self.menuBitDepth.addAction(self.action5Bit)
+        self.menuBitDepth.addAction(self.action6Bit)
+        self.menuBitDepth.addAction(self.action7Bit)
+        # Connect actions to methods (replace with your own methods)
+    
+        
+        # Add actions to 'View Histogram' menu
+        self.menuHistogram.addAction(self.histogramInput)
+        self.menuHistogram.addAction(self.histogramOutput)
+        self.menuHistogram.addAction(self.histogramInputOutput)
+        
+        # Add 'View Histogram' menu to menubar
+        self.menubar.addMenu(self.menuHistogram)
+        self.menuImageProcessing = self.menubar.addMenu("Image Processing")
+
+        # Tambahkan submenu "Histogram Equalization" ke dalam "Image Processing"
+        self.actionHistogramEqualization = QAction("Histogram Equalization", self)
+        self.menuImageProcessing.addAction(self.actionHistogramEqualization)
+
+        # Tambahkan submenu "FHE RGB" ke dalam "Image Processing"
+        self.actionFHERGB = QAction("FHE RGB", self)
+        self.menuImageProcessing.addAction(self.actionFHERGB)
+
+        # Tambahkan submenu "FHE Grayscale" ke dalam "Image Processing"
+        self.actionFHEGrayscale = QAction("FHE Grayscale", self)
+        self.menuImageProcessing.addAction(self.actionFHEGrayscale)
+
+        # Tambahkan submenu "Filter" ke dalam "Image Processing"
+        self.menuFilter = self.menuImageProcessing.addMenu("Filter")
+
+        # Tambahkan submenu "Low Pass Filter" ke dalam "Filter"
+        self.actionLowPassFilter = QAction("Low Pass Filter", self)
+        self.menuFilter.addAction(self.actionLowPassFilter)
+
+        # Tambahkan submenu "High Pass Filter" ke dalam "Filter"
+        self.actionHighPassFilter = QAction("High Pass Filter", self)
+        self.menuFilter.addAction(self.actionHighPassFilter)
         # Replace your existing QAction connections with these
         self.actionScalingUniform.triggered.connect(lambda: GeometryOperation.scaling_uniform(self.pixmap, self.afterImageView))
         self.actionScalingNonUniform.triggered.connect(lambda: GeometryOperation.scaling_non_uniform(self.pixmap, self.afterImageView))
@@ -91,42 +167,307 @@ class Ui_MainWindow(QMainWindow):
         self.actionTop.triggered.connect(lambda: GeometryOperation.action_top(self.pixmap, self.afterImageView))
         self.actionBottom.triggered.connect(lambda: GeometryOperation.action_bottom(self.pixmap, self.afterImageView))
         self.menuRotasi.addAction("Rotate Image", lambda: GeometryOperation.rotate_image(self.pixmap, self.afterImageView))
+        #Histogram Fungsi
+        self.histogramInput.triggered.connect(self.show_histogram_input)
+        self.histogramOutput.triggered.connect(self.show_histogram_output)
+        self.histogramInputOutput.triggered.connect(self.show_histogram_input_output)
+        self.menuHistogram.addAction("RGB Histogram Output", self.view_output_histogram_rgb)
+        self.menuHistogram.addAction("RGB Histogram Input and Output", self.show_histogram_input_output_rgb)
+        
+        self.menuKonvolusi = self.menuBar().addMenu("Konvolusi")
+
+        # Create the "Identity" submenu item
+        self.actionIdentity = QAction("Identity", self)
+        self.actionIdentity.triggered.connect(self.apply_identity_filter)
+        self.menuKonvolusi.addAction(self.actionIdentity)
+
+        # Create the "Edge Detection" submenu
+        self.submenuEdgeDetection = QMenu("Edge Detection", self)
+
+        # Create the "Sobel" submenu item
+        self.actionSobel = QAction("Sobel", self)
+        self.actionSobel.triggered.connect(self.apply_sobel_edge_detection)
+        self.submenuEdgeDetection.addAction(self.actionSobel)
+
+        # Create the "Prewit" submenu item
+        self.actionPrewit = QAction("Prewit", self)
+        self.actionPrewit.triggered.connect(self.apply_prewit_edge_detection)
+        self.submenuEdgeDetection.addAction(self.actionPrewit)
+
+        # Create the "Robert" submenu item
+        self.actionRobert = QAction("Robert", self)
+        self.actionRobert.triggered.connect(self.apply_robert_edge_detection)
+        self.submenuEdgeDetection.addAction(self.actionRobert)
+
+        # Add the "Edge Detection" submenu to "Konvolusi"
+        self.menuKonvolusi.addMenu(self.submenuEdgeDetection)
+
+        # Create the "Sharpen" submenu item
+        self.actionSharpen = QAction("Sharpen", self)
+        self.actionSharpen.triggered.connect(self.apply_sharpen_filter)
+        self.menuKonvolusi.addAction(self.actionSharpen)
+
+        # Create the "Gaussian Blur" submenu
+        self.submenuGaussianBlur = QMenu("Gaussian Blur", self)
+
+        # Create the "3 x 3" submenu item
+        self.actionGaussian3x3 = QAction("3 x 3", self)
+        self.actionGaussian3x3.triggered.connect(self.apply_gaussian_blur_3x3)
+        self.submenuGaussianBlur.addAction(self.actionGaussian3x3)
+
+        # Create the "5 x 5" submenu item
+        self.actionGaussian5x5 = QAction("5 x 5", self)
+        self.actionGaussian5x5.triggered.connect(self.apply_gaussian_blur_5x5)
+        self.submenuGaussianBlur.addAction(self.actionGaussian5x5)
+
+        # Add the "Gaussian Blur" submenu to "Konvolusi"
+        self.menuKonvolusi.addMenu(self.submenuGaussianBlur)
+
+        # Create the "Unsharp Masking" submenu item
+        self.actionUnsharpMasking = QAction("Unsharp Masking", self)
+        self.actionUnsharpMasking.triggered.connect(self.apply_unsharp_masking)
+        self.menuKonvolusi.addAction(self.actionUnsharpMasking)
+        self.actionBrightness.triggered.connect(self.adjust_brightness)
+        self.actionContrast.triggered.connect(self.adjust_contrast)
+        self.actionThreshold.triggered.connect(self.apply_threshold)
+        self.actionInvers.triggered.connect(self.apply_inversion)
+        self.action1Bit.triggered.connect(lambda: self.apply_bit_depth(1))
+        self.action2Bit.triggered.connect(lambda: self.apply_bit_depth(2))
+        self.action3Bit.triggered.connect(lambda: self.apply_bit_depth(3))
+        self.action4Bit.triggered.connect(lambda: self.apply_bit_depth(4))
+        self.action5Bit.triggered.connect(lambda: self.apply_bit_depth(5))
+        self.action6Bit.triggered.connect(lambda: self.apply_bit_depth(6))
+        self.action7Bit.triggered.connect(lambda: self.apply_bit_depth(7))
+        self.actionHistogramEqualization.triggered.connect(self.manual_histogram_equalization)
+        self.actionFHERGB.triggered.connect(self.fuzzy_histogram_equalization_rgb)  # Connect it to the function
+        self.actionFHEGrayscale.triggered.connect(self.fuzzy_histogram_equalization_grayscale)  # Connect it to the function
+        self.actionLowPassFilter.triggered.connect(self.apply_low_pass_filter)  # Connect it to the function
+        self.actionHighPassFilter.triggered.connect(self.apply_high_pass_filter)  # Connect it to the function
+
+    def fuzzy_histogram_equalization_grayscale(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Apply Fuzzy Histogram Equalization
+            equalized_grayscale_image = self.fuzzy_histogram_equalization_grayscale_channel(grayscale_image)
+            # Convert the result back to QPixmap
+            q_image = QImage(equalized_grayscale_image.data, width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the equalized grayscale image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+ 
+    def manual_histogram_equalization(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width = image.width()
+            height = image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert to grayscale
+            gray_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Compute the histogram
+            histogram = [0] * 256
+            for row in gray_image:
+                for pixel in row:
+                    histogram[pixel] += 1
+
+            # Compute the cumulative distribution function (CDF)
+            cdf = [0] * 256
+            cdf[0] = histogram[0]
+            for i in range(1, 256):
+                cdf[i] = cdf[i - 1] + histogram[i]
+
+            # Compute the equalized image
+            equalized_image = np.zeros_like(gray_image)
+            total_pixels = width * height
+            for i in range(256):
+                equalized_value = int((cdf[i] / total_pixels) * 255)
+                equalized_image[gray_image == i] = equalized_value
+
+            # Convert the result back to QPixmap
+            height, width = equalized_image.shape
+            bytes_per_line = 1 * width
+            q_image = QImage(equalized_image.data, width, height, bytes_per_line, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the equalized image in afterImageView
+            self.afterImageView.setPixmap(pixmap)        
+    def apply_bit_depth(self, n_bits):
+        if self.pixmap:
+            img = self.pixmap_to_numpy(self.pixmap)
+            max_val = 2**n_bits - 1
+            img = np.round(img * max_val / 255) * 255 / max_val
+            self.update_after_image(img)
+
+    def adjust_brightness(self):
+        value, ok = QInputDialog.getInt(self, "Brightness", "Enter the brightness value:", 0, -255, 255, 1)
+        if ok:
+            img = self.pixmap_to_numpy(self.pixmap)
+            img = self.adjust_brightness_numpy(img, value)
+            self.update_after_image(img)
+
+    def adjust_contrast(self):
+        value, ok = QInputDialog.getDouble(self, "Contrast", "Enter the contrast value:", 1.0, 0.0, 10.0, 2)
+        if ok:
+            img = self.pixmap_to_numpy(self.pixmap)
+            img = self.adjust_contrast_numpy(img, value)
+            self.update_after_image(img)
+
+    def apply_threshold(self):
+        if self.pixmap:
+            img = self.pixmap_to_numpy(self.pixmap)
+            img = self.apply_threshold_numpy(img)
+            self.update_after_image(img)
+
+    def apply_inversion(self):
+        if self.pixmap:
+            img = self.pixmap_to_numpy(self.pixmap)
+            img = self.apply_inversion_numpy(img)
+            self.update_after_image(img)
+
+    def adjust_brightness_numpy(self, img, value):
+        return np.clip(img + value, 0, 255)
+
+    def adjust_contrast_numpy(self, img, factor):
+        return np.clip(128 + factor * (img - 128), 0, 255)
+
+    def apply_threshold_numpy(self, img, threshold=128):
+        return np.where(img < threshold, 0, 255)
+
+    def apply_inversion_numpy(self, img):
+        return 255 - img
+
+    def pixmap_to_numpy(self, pixmap):
+        image = pixmap.toImage()
+        h, w = image.height(), image.width()
+        array = np.zeros((h, w, 3), dtype=np.uint8)
+        for x in range(w):
+            for y in range(h):
+                color = QColor(image.pixel(x, y))
+                array[y, x] = (color.red(), color.green(), color.blue())
+        return array
+
+    def numpy_to_pixmap(self, array):
+        h, w, _ = array.shape
+        image = QImage(w, h, QImage.Format_RGB32)
+        for x in range(w):
+            for y in range(h):
+                r, g, b = array[y, x]
+                image.setPixel(x, y, QColor(r, g, b).rgb())
+        return QPixmap.fromImage(image)
+
+    def update_after_image(self, img):
+        pixmap = self.numpy_to_pixmap(img.astype('uint8'))
+        self.afterImageView.setPixmap(pixmap)
 
 
-
-        # Add this new method
-    def scaling_uniform(self):
+    #Histogram Fungsi   
+    def view_output_histogram_rgb(self):
+        if self.afterImageView.pixmap():
+            img: QImage = self.afterImageView.pixmap().toImage()
+            self.show_rgb_histogram(img, "RGB Histogram - Output")
+    def view_input_histogram_rgb(self):
         if self.pixmap:
             img: QImage = self.pixmap.toImage()
-            width, ok = QInputDialog.getInt(self, 'Input', 'Enter the width:', min=1, max=5000)
-            if ok:
-                height = int(width * img.height() / img.width())  # Maintain aspect ratio
-                scaled_img = img.scaled(width, height, Qt.KeepAspectRatio, Qt.SmoothTransformation)
-                self.afterImageView.setPixmap(QPixmap.fromImage(scaled_img))
-
-    def scaling_non_uniform(self):
+            self.show_rgb_histogram(img, "RGB Histogram - Input")
+    def show_histogram_input(self):
         if self.pixmap:
             img: QImage = self.pixmap.toImage()
-            width, ok1 = QInputDialog.getInt(self, 'Input', 'Enter the width:', min=1, max=5000)
-            height, ok2 = QInputDialog.getInt(self, 'Input', 'Enter the height:', min=1, max=5000)
-            if ok1 and ok2:
-                scaled_img = img.scaled(width, height, Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
-                self.afterImageView.setPixmap(QPixmap.fromImage(scaled_img))
+            self.show_histogram(img, "Histogram - Input")
 
+    def show_histogram_output(self):
+        if self.afterImageView.pixmap():
+            img: QImage = self.afterImageView.pixmap().toImage()
+            self.show_histogram(img, "Histogram - Output")
 
-    def rotate_image(self):
-        if self.pixmap:
-            # Get the rotation angle from user
-            angle, ok = QInputDialog.getDouble(self, "Rotate", "Enter rotation angle:", 0, -360, 360, 2)
-            
-            if ok:
-                # Perform rotation
-                transform = QTransform().rotate(angle)
-                rotated_pixmap = self.pixmap.transformed(transform, Qt.SmoothTransformation)
-                
-                # Update the QLabel with the rotated image
-                self.afterImageView.setPixmap(rotated_pixmap)
+    def show_histogram_input_output(self):
+        if self.pixmap and self.afterImageView.pixmap():
+            img_input: QImage = self.pixmap.toImage()
+            img_output: QImage = self.afterImageView.pixmap().toImage()
 
+            fig, axs = plt.subplots(1, 2, figsize=(12, 6))
+            self.show_histogram(img_input, "Histogram - Input", axs[0])
+            self.show_histogram(img_output, "Histogram - Output", axs[1])
+
+            plt.show()
+
+    def show_histogram(self, img, title, ax=None):
+        if not ax:
+            fig, ax = plt.subplots()
+
+        ax.set_title(title)
+        ax.set_xlabel("Pixel value")
+        ax.set_ylabel("Frequency")
+
+        # Convert QImage to numpy array
+        h = img.height()
+        w = img.width()
+        ptr = img.bits()
+        ptr.setsize(h * w * 4)
+        arr = np.frombuffer(ptr, np.uint8).reshape((h, w, 4))  # Copies the data
+        grey_image = np.dot(arr[...,:3], [0.2989, 0.5870, 0.1140])  # To greyscale
+
+        n, bins, patches = ax.hist(grey_image.ravel(), bins=256, range=(0, 256), alpha=0.7)
+
+        # Set colour using colormap
+        bin_centers = 0.5 * (bins[:-1] + bins[1:])
+        col = bin_centers - min(bin_centers)
+        col /= max(col)
+
+        for c, p in zip(col, patches):
+            plt.setp(p, 'facecolor', cm.viridis(c))
+
+        if not ax:
+            plt.show()
+
+    def show_rgb_histogram(self, img, title, ax=None):
+        if not ax:
+            fig, ax = plt.subplots()
+
+        ax.set_title(title)
+        ax.set_xlabel("Pixel value")
+        ax.set_ylabel("Frequency")
+
+        # Convert QImage to numpy array
+        h = img.height()
+        w = img.width()
+        ptr = img.bits()
+        ptr.setsize(h * w * 4)
+        arr = np.frombuffer(ptr, np.uint8).reshape((h, w, 4))
+
+        for i, color in enumerate(["Red", "Green", "Blue"]):
+            channel_data = arr[..., i]
+            ax.hist(channel_data.ravel(), bins=256, range=(0, 256), alpha=0.7, color=color.lower(), label=color)
+        
+        ax.legend()
+
+        if not ax:
+            plt.show()
+
+    def show_histogram_input_output_rgb(self):
+        if self.pixmap and self.afterImageView.pixmap():
+            img_input: QImage = self.pixmap.toImage()
+            img_output: QImage = self.afterImageView.pixmap().toImage()
+
+            fig, axs = plt.subplots(1, 2, figsize=(12, 6))
+            self.show_rgb_histogram(img_input, "RGB Histogram - Input", axs[0])
+            self.show_rgb_histogram(img_output, "RGB Histogram - Output", axs[1])
+
+            plt.show()
 
     def animate_title(self):
         titles = ["My Dark Mode App", "Welcome!", "Enjoy!", ""]
@@ -138,6 +479,191 @@ class Ui_MainWindow(QMainWindow):
         # Resize the image based on the window size, or do some other adjustments.
         # This function is called every time the window is resized.
 
+
+    def fuzzy_histogram_equalization_rgb(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to BGR (OpenCV format)
+            bgr_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2BGR)
+
+            # Apply Fuzzy Histogram Equalization
+            equalized_bgr_image = self.fuzzy_histogram_equalization_bgr(bgr_image)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(equalized_bgr_image.data, width, height, width * 3, QImage.Format_RGB888)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the equalized RGB image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+    def apply_low_pass_filter(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Define a low-pass filter kernel (e.g., a simple 3x3 averaging filter)
+            kernel = np.array([[1, 1, 1],
+                               [1, 1, 1],
+                               [1, 1, 1]]) / 9
+
+            # Apply the low-pass filter using convolution
+            filtered_image = signal.convolve2d(grayscale_image, kernel, mode='same', boundary='wrap')
+
+            # Convert the result back to QPixmap
+            q_image = QImage(filtered_image.astype(np.uint8), width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the filtered image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+    def apply_high_pass_filter(self):
+        if hasattr(self, 'pixmap'):
+            # Convert the QPixmap to a numpy array
+            image = self.pixmap.toImage()
+            width, height = image.width(), image.height()
+            ptr = image.bits()
+            ptr.setsize(image.byteCount())
+            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+            # Convert RGBA to grayscale
+            grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+            # Define a high-pass filter kernel (e.g., Laplacian with proper scaling)
+            kernel = np.array([[-1, -1, -1],
+                            [-1,  8, -1],
+                            [-1, -1, -1]])
+
+            # Apply the high-pass filter using convolution
+            filtered_image = signal.convolve2d(grayscale_image, kernel, mode='same', boundary='wrap')
+
+            # Clip values to ensure they are in the valid range [0, 255]
+            filtered_image = np.clip(filtered_image, 0, 255)
+
+            # Convert the result back to QPixmap
+            q_image = QImage(filtered_image.astype(np.uint8), width, height, width, QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+
+            # Display the filtered image in afterImageView
+            self.afterImageView.setPixmap(pixmap)
+
+    def fuzzy_histogram_equalization_bgr(self, bgr_image):
+        # Convert BGR image to LAB color space
+        lab_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2LAB)
+
+        # Split LAB image into L, A, and B channels
+        l_channel, a_channel, b_channel = cv2.split(lab_image)
+
+        # Apply Fuzzy Histogram Equalization to the L channel
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        equalized_l_channel = clahe.apply(l_channel)
+
+        # Merge equalized L channel with original A and B channels
+        equalized_lab_image = cv2.merge((equalized_l_channel, a_channel, b_channel))
+
+        # Convert LAB image back to BGR color space
+        equalized_bgr_image = cv2.cvtColor(equalized_lab_image, cv2.COLOR_LAB2BGR)
+
+        return equalized_bgr_image
+    def fuzzy_histogram_equalization_grayscale_channel(self, channel):
+        # Apply Fuzzy Histogram Equalization using OpenCV
+        clahe = cv2.createCLAHE(clipLimit=0.03, tileGridSize=(8, 8))
+        equalized_channel = clahe.apply(channel)
+        return equalized_channel
+
+    def apply_convolution(self, kernel):
+            if hasattr(self, 'pixmap'):
+                # Convert the QPixmap to a numpy array
+                image = self.pixmap.toImage()
+                width, height = image.width(), image.height()
+                ptr = image.bits()
+                ptr.setsize(image.byteCount())
+                arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+
+                # Convert RGBA to grayscale
+                grayscale_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2GRAY)
+
+                # Apply the convolution filter using scipy's signal.convolve2d
+                filtered_image = signal.convolve2d(grayscale_image, kernel, mode='same', boundary='wrap')
+
+                # Clip values to ensure they are in the valid range [0, 255]
+                filtered_image = np.clip(filtered_image, 0, 255)
+
+                # Convert the result back to QPixmap
+                q_image = QImage(filtered_image.astype(np.uint8), width, height, width, QImage.Format_Grayscale8)
+                pixmap = QPixmap.fromImage(q_image)
+
+                # Display the filtered image in afterImageView
+                self.afterImageView.setPixmap(pixmap)
+
+        # Implement functions for various convolution operations
+    def apply_identity_filter(self):
+        # Implement the Identity filter kernel (3x3)
+        kernel = np.array([[0, 0, 0],
+                           [0, 1, 0],
+                           [0, 0, 0]])
+        self.apply_convolution(kernel)
+
+    def apply_sobel_edge_detection(self):
+        # Implement the Sobel edge detection filter (3x3)
+        kernel = np.array([[-1, 0, 1],
+                           [-2, 0, 2],
+                           [-1, 0, 1]])
+        self.apply_convolution(kernel)
+
+    def apply_prewit_edge_detection(self):
+        # Implement the Prewitt edge detection filter (3x3)
+        kernel = np.array([[-1, 0, 1],
+                           [-1, 0, 1],
+                           [-1, 0, 1]])
+        self.apply_convolution(kernel)
+
+    def apply_robert_edge_detection(self):
+        # Implement the Robert edge detection filter (2x2)
+        kernel = np.array([[1, 0],
+                           [0, -1]])
+        self.apply_convolution(kernel)
+
+    def apply_sharpen_filter(self):
+        # Implement a sharpening filter kernel (3x3)
+        kernel = np.array([[0, -1, 0],
+                           [-1, 5, -1],
+                           [0, -1, 0]])
+        self.apply_convolution(kernel)
+
+    def apply_gaussian_blur_3x3(self):
+        # Implement a 3x3 Gaussian blur filter kernel
+        kernel = (1/16) * np.array([[1, 2, 1],
+                                    [2, 4, 2],
+                                    [1, 2, 1]])
+        self.apply_convolution(kernel)
+
+    def apply_gaussian_blur_5x5(self):
+        # Implement a 5x5 Gaussian blur filter kernel
+        kernel = (1/256) * np.array([[1, 4, 6, 4, 1],
+                                     [4, 16, 24, 16, 4],
+                                     [6, 24, 36, 24, 6],
+                                     [4, 16, 24, 16, 4],
+                                     [1, 4, 6, 4, 1]])
+        self.apply_convolution(kernel)
+
+    def apply_unsharp_masking(self):
+        # Implement unsharp masking filter (3x3)
+        kernel = np.array([[-1, -1, -1],
+                           [-1,  9, -1],
+                           [-1, -1, -1]])
+        self.apply_convolution(kernel)
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = Ui_MainWindow()
