@@ -298,6 +298,16 @@ class Ui_MainWindow(QMainWindow):
         # Add actions for Region Of Interest and Background Removal in the "ROI" menu
         self.actionRegionOfInterest = QAction("Region Of Interest", self)
         roi_menu.addAction(self.actionRegionOfInterest)
+        roi_manual_submenu = QMenu("ROI: Manual Selection", self)
+        self.actionRegionOfInterest.triggered.connect(self.run_roi_script)  # Connect to open_file function
+
+        # Add actions for Region Of Interest and Background Removal in the "ROI" menu
+        action_region_of_interest = QAction("Region Of Interest", self)
+        action_region_of_interest.triggered.connect(self.run_roi_manual)  # Connect to open_file function
+        roi_manual_submenu.addAction(action_region_of_interest)
+
+        # Add the "ROI: Manual Selection" submenu to the "ROI" menu
+        roi_menu.addMenu(roi_manual_submenu)
                 # Tambahkan tindakan (action) untuk "Background Removal" di luar menu "ROI"
         self.actionBackgroundRemoval = QAction("Background Removal", self)
         self.actionBackgroundRemoval.triggered.connect(self.run_background_removal)
@@ -392,7 +402,13 @@ class Ui_MainWindow(QMainWindow):
             subprocess.Popen(["python", "roi.py"])
         except FileNotFoundError:
             print("File 'roi.py' tidak ditemukan.")
-
+    def run_roi_manual(self):
+          # Panggil file "roi.py" menggunakan subprocess
+        try:
+            subprocess.Popen(["python", "roi_manual.py"])
+        except FileNotFoundError:
+            print("File 'roi.py' tidak ditemukan.")
+            
     def run_background_removal(self):
         # Panggil file "roi.py" menggunakan subprocess
         try:
