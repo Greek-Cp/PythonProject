@@ -11,7 +11,7 @@ class Ui_MainWindow(QMainWindow):
         self.setupUi(self)
         dark_stylesheet = '''
             QWidget {
-                background-color: #1F1F1F;
+                background-color: #3EBE2;
                 color: #FFFFFF;
             }
             QLabel {
