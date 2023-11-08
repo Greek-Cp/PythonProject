@@ -1,5 +1,8 @@
+import datetime
+import os
+import subprocess
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QApplication, QLabel, QWidget, QGridLayout , QInputDialog,QAction, QMenu 
-from PyQt5.QtGui import QPixmap , QImage , QPainter, QTransform , QColor
+from PyQt5.QtGui import QPixmap , QImage , QPainter, QTransform , QColor, qRed, qGreen, qBlue, qRgb
 from PyQt5.QtCore import QTimer, Qt, QRect
 import matplotlib.pyplot as plt
 import sys
@@ -15,7 +18,31 @@ class Ui_MainWindow(QMainWindow):
     def __init__(self):
         super(Ui_MainWindow, self).__init__()
         self.setupUi(self)
-        self.setStyleSheet("background-color: lightgrey;")
+        dark_stylesheet = '''
+            QWidget {
+                background-color: #3EBE2;
+                color: #FFFFFF;
+            }
+            QLabel {
+                border: 2px solid #FFFFFF;
+                border-radius: 4px;
+            }
+            QMenu::item:selected {
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C147E9, stop:1 #8823D5);
+                color: #FFFFFF;
+            }
+            QMenuBar::item:selected {
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C147E9, stop:1 #8823D5);
+                color: #FFFFFF;
+                border-radius: 8px;
+                border: 1px solid #FFFFFF;
+            }
+            QMenuBar::item {
+                padding: 5px 10px;
+            }
+            '''
+
+        self.setStyleSheet(dark_stylesheet)
         self.timer = QTimer()
         self.timer.timeout.connect(self.animate_title)
         self.counter = 0
@@ -29,7 +56,9 @@ class Ui_MainWindow(QMainWindow):
         MainWindow.resize(1200, 900)
 
         grid_layout = QGridLayout()
-
+        self.setMinimumSize(800, 600)  # Set the minimum size you desire
+        
+        
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setLayout(grid_layout)
         
@@ -50,6 +79,7 @@ class Ui_MainWindow(QMainWindow):
             # New Geometric Operation Menu
         self.menuGeomOp = self.menubar.addMenu("Geometric Operation")
         
+       
         # Scalling Uniform
         self.actionScalingUniform = self.menuGeomOp.addAction("Scaling Uniform")
         
@@ -59,6 +89,7 @@ class Ui_MainWindow(QMainWindow):
 
         # Cropping
         self.actionCropping = self.menuGeomOp.addAction("Cropping")
+        self.actionCropping.triggered.connect(self.run_croping)
         
         
         # Flipping Submenu
@@ -77,6 +108,13 @@ class Ui_MainWindow(QMainWindow):
         # Rotasi Submenu
         self.menuRotasi = self.menuGeomOp.addMenu("Rotasi")
         self.actionCustomRotasi = self.menuRotasi.addAction("Custom Rotasi")
+        # Tambahkan menu "Operasi Aritmatika" ke menu bar
+        self.menuOperasiAritmatik = self.menubar.addMenu("Operasi Aritmatika")
+
+        # Tambahkan tindakan (action) untuk menu "Operasi Aritmatika"
+        self.run_arithmetic_action = QAction("Jalankan Aplikasi Aritmatika", self)
+        self.run_arithmetic_action.triggered.connect(self.run_arithmetic)
+        self.menuOperasiAritmatik.addAction(self.run_arithmetic_action)
         self.beforeImageView = QLabel(self.centralwidget)
         self.beforeImageView.setStyleSheet("border: 2px solid black;")
         self.beforeImageView.setScaledContents(True)
@@ -260,9 +298,20 @@ class Ui_MainWindow(QMainWindow):
         # Add actions for Region Of Interest and Background Removal in the "ROI" menu
         self.actionRegionOfInterest = QAction("Region Of Interest", self)
         roi_menu.addAction(self.actionRegionOfInterest)
-        
+        roi_manual_submenu = QMenu("ROI: Manual Selection", self)
+        self.actionRegionOfInterest.triggered.connect(self.run_roi_script)  # Connect to open_file function
+
+        # Add actions for Region Of Interest and Background Removal in the "ROI" menu
+        action_region_of_interest = QAction("Region Of Interest", self)
+        action_region_of_interest.triggered.connect(self.run_roi_manual)  # Connect to open_file function
+        roi_manual_submenu.addAction(action_region_of_interest)
+
+        # Add the "ROI: Manual Selection" submenu to the "ROI" menu
+        roi_menu.addMenu(roi_manual_submenu)
+                # Tambahkan tindakan (action) untuk "Background Removal" di luar menu "ROI"
         self.actionBackgroundRemoval = QAction("Background Removal", self)
-        roi_menu.addAction(self.actionBackgroundRemoval)
+        self.actionBackgroundRemoval.triggered.connect(self.run_background_removal)
+        self.menubar.addAction(self.actionBackgroundRemoval)
         # Create the "Morfologi" menu
         morfologi_menu = self.menubar.addMenu("Morfologi")
 
@@ -313,15 +362,21 @@ class Ui_MainWindow(QMainWindow):
         closing_submenu.addAction(square9_closing_action)
     # Create the "Ekstraksi Fitur" menu
         ekstraksi_fitur_menu = self.menubar.addMenu("Ekstraksi Fitur")
+        # Create a submenu "Warna: RGB"
+        warna_rgb_submenu = ekstraksi_fitur_menu.addMenu("Warna: RGB")
+        # Add action "RGB" to "Warna: RGB" submenu
+        rgb_action = QAction("RGB", self)
+        rgb_action.triggered.connect(self.featureExtractionRGB)
+        warna_rgb_submenu.addAction(rgb_action)
 
         # Add submenu "Warna: RGB to HSV" to "Ekstraksi Fitur"
         rgb_to_hsv_action = QAction("Warna: RGB to HSV", self)
-        rgb_to_hsv_action.triggered.connect(self.rgb_to_hsv)
+        rgb_to_hsv_action.triggered.connect(self.featureExtractionRGBtoHSV)
         ekstraksi_fitur_menu.addAction(rgb_to_hsv_action)
 
         # Add submenu "Warna: RGB to YCRCb" to "Ekstraksi Fitur"
         rgb_to_ycrcb_action = QAction("Warna: RGB to YCRCb", self)
-        rgb_to_ycrcb_action.triggered.connect(self.rgb_to_ycrcb)
+        rgb_to_ycrcb_action.triggered.connect(self.featureExtractionRGBtoYCrCb)
         ekstraksi_fitur_menu.addAction(rgb_to_ycrcb_action)
 
         self.actionBrightness.triggered.connect(self.adjust_brightness)
@@ -341,67 +396,387 @@ class Ui_MainWindow(QMainWindow):
         self.actionLowPassFilter.triggered.connect(self.apply_low_pass_filter)  # Connect it to the function
         self.actionHighPassFilter.triggered.connect(self.apply_high_pass_filter)  # Connect it to the function
 # Add the corresponding functions for RGB to HSV and RGB to YCRCb conversions
-    def rgb_to_hsv(self):
-        if hasattr(self, 'pixmap'):
-            # Convert the QPixmap to a numpy array
-            image = self.pixmap.toImage()
-            width, height = image.width(), image.height()
-            ptr = image.bits()
-            ptr.setsize(image.byteCount())
-            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
-
-            # Convert RGBA to BGR
-            bgr_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2BGR)
-
-            # Convert BGR to HSV
-            hsv_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2HSV)
-
-            # Convert the result back to QPixmap
-            q_image = QImage(hsv_image, width, height, width * 3, QImage.Format_RGB888)
-            pixmap = QPixmap.fromImage(q_image)
-
-            # Display the processed image in afterImageView
-            self.afterImageView.setPixmap(pixmap)
-
-            # Extract color data and save to Excel
-            original_image_data = pd.DataFrame(bgr_image.reshape(-1, 3), columns=["R", "G", "B"])
-            hsv_image_data = pd.DataFrame(hsv_image.reshape(-1, 3), columns=["H", "S", "V"])
+    def run_roi_script(self):
+        # Panggil file "roi.py" menggunakan subprocess
+        try:
+            subprocess.Popen(["python", "roi.py"])
+        except FileNotFoundError:
+            print("File 'roi.py' tidak ditemukan.")
+    def run_roi_manual(self):
+          # Panggil file "roi.py" menggunakan subprocess
+        try:
+            subprocess.Popen(["python", "roi_manual.py"])
+        except FileNotFoundError:
+            print("File 'roi.py' tidak ditemukan.")
             
-            # Export to Excel
-            with pd.ExcelWriter('color_extraction_data.xlsx') as writer:
-                original_image_data.to_excel(writer, sheet_name='Original Image Data', index=False)
-                hsv_image_data.to_excel(writer, sheet_name='HSV Image Data', index=False)
+    def run_background_removal(self):
+        # Panggil file "roi.py" menggunakan subprocess
+        try:
+            subprocess.Popen(["python", "remove_bg.py"])
+        except FileNotFoundError:
+            print("File 'roi.py' tidak ditemukan.")
+    def run_croping(self):
+                # Panggil file "aritmatika.py" menggunakan subprocess
+        try:
+            subprocess.Popen(["python", "crop.py"])
+        except FileNotFoundError:
+            print("File 'crop.py' tidak ditemukan.")
+    def run_arithmetic(self):
+        # Panggil file "aritmatika.py" menggunakan subprocess
+        try:
+            subprocess.Popen(["python", "aritmatika.py"])
+        except FileNotFoundError:
+            print("File 'aritmatika.py' tidak ditemukan.")
+    def perform_addition(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
 
-    def rgb_to_ycrcb(self):
-        if hasattr(self, 'pixmap'):
-            # Convert the QPixmap to a numpy array
-            image = self.pixmap.toImage()
-            width, height = image.width(), image.height()
-            ptr = image.bits()
-            ptr.setsize(image.byteCount())
-            arr = np.array(ptr).reshape(height, width, 4)  # RGBA image
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
 
-            # Convert RGBA to BGR
-            bgr_image = cv2.cvtColor(arr, cv2.COLOR_RGBA2BGR)
+                    r_result = min(int(color1[0]) + int(color2[0]), 255)
+                    g_result = min(int(color1[1]) + int(color2[1]), 255)
+                    b_result = min(int(color1[2]) + int(color2[2]), 255)
 
-            # Convert BGR to YCRCb
-            ycrcb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2YCR_CB)
+                    result[y, x] = [r_result, g_result, b_result]
 
-            # Convert the result back to QPixmap
-            q_image = QImage(ycrcb_image, width, height, width * 3, QImage.Format_RGB888)
-            pixmap = QPixmap.fromImage(q_image)
+            self.show_image(result, 'Addition Result')
+            self.display_arithmetic_result(result)
 
-            # Display the processed image in afterImageView
-            self.afterImageView.setPixmap(pixmap)
+    def perform_subtraction(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
 
-            # Extract color data and save to Excel
-            original_image_data = pd.DataFrame(bgr_image.reshape(-1, 3), columns=["R", "G", "B"])
-            ycrcb_image_data = pd.DataFrame(ycrcb_image.reshape(-1, 3), columns=["Y", "Cr", "Cb"])
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = max(int(color1[0]) - int(color2[0]), 0)
+                    g_result = max(int(color1[1]) - int(color2[1]), 0)
+                    b_result = max(int(color1[2]) - int(color2[2]), 0)
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'Subtraction Result')
+            self.display_arithmetic_result(result)
+
+    def perform_multiplication(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = min(int(color1[0]) * int(color2[0]) // 255, 255)
+                    g_result = min(int(color1[1]) * int(color2[1]) // 255, 255)
+                    b_result = min(int(color1[2]) * int(color2[2]) // 255, 255)
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'Multiplication Result')
+            self.display_arithmetic_result(result)
+
+    def perform_division(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = 0 if int(color2[0]) == 0 else min(int(color1[0]) * 255 // int(color2[0]), 255)
+                    g_result = 0 if int(color2[1]) == 0 else min(int(color1[1]) * 255 // int(color2[1]), 255)
+                    b_result = 0 if int(color2[2]) == 0 else min(int(color1[2]) * 255 // int(color2[2]), 255)
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'Division Result')
+            self.display_arithmetic_result(result)
+
+    def perform_and_operation(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = int(color1[0]) & int(color2[0])
+                    g_result = int(color1[1]) & int(color2[1])
+                    b_result = int(color1[2]) & int(color2[2])
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'AND Result')
+            self.display_arithmetic_result(result)
+
+    def perform_xor_operation(self):
+        if hasattr(self, 'image1') and hasattr(self, 'image2'):
+            height1, width1, _ = self.image1.shape
+            height2, width2, _ = self.image2.shape
+            width = min(width1, width2)
+            height = min(height1, height2)
+            result = np.zeros((height, width, 3), dtype=np.uint8)
+
+            for x in range(width):
+                for y in range(height):
+                    color1 = self.image1[y, x]
+                    color2 = self.image2[y, x]
+
+                    r_result = int(color1[0]) ^ int(color2[0])
+                    g_result = int(color1[1]) ^ int(color2[1])
+                    b_result = int(color1[2]) ^ int(color2[2])
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'XOR Result')
+            self.display_arithmetic_result(result)
+
+    def perform_not_operation(self):
+        if hasattr(self, 'image1'):
+            height1, width1, _ = self.image1.shape
+            result = np.zeros((height1, width1, 3), dtype=np.uint8)
+
+            for x in range(width1):
+                for y in range(height1):
+                    color1 = self.image1[y, x]
+
+                    r_result = 255 - int(color1[0])
+                    g_result = 255 - int(color1[1])
+                    b_result = 255 - int(color1[2])
+
+                    result[y, x] = [r_result, g_result, b_result]
+
+            self.show_image(result, 'NOT Result')
+            self.display_arithmetic_result(result)
+
+    def display_arithmetic_result(self, result):
+        result_image = QImage(result.data, result.shape[1], result.shape[0], result.shape[1] * 3, QImage.Format_RGB888)
+        self.hasilPerhitunganAritmatika.setPixmap(QPixmap.fromImage(result_image))
+        self.hasilPerhitunganAritmatika.setScaledContents(True)
+    
+    def featureExtractionRGBtoHSV(self):
+        original_pixmap = self.beforeImageView.pixmap()  # Use beforeImageView
+        if original_pixmap:
+            original_image = original_pixmap.toImage()
+            width = original_image.width()
+            height = original_image.height()
+
+            result_image = QImage(width, height, QImage.Format_ARGB32)
+
+            h_total = 0
+            s_total = 0
+            v_total = 0
+
+            for y in range(height):
+                for x in range(width):
+                    pixel = original_image.pixel(x, y)
+
+                    red = qRed(pixel)
+                    green = qGreen(pixel)
+                    blue = qBlue(pixel)
+
+                    # Normalisasi nilai RGB ke dalam rentang [0, 1]
+                    r_normalized = red / 255.0
+                    g_normalized = green / 255.0
+                    b_normalized = blue / 255.0
+
+                    max_v = max(r_normalized, g_normalized, b_normalized)
+                    min_v = min(r_normalized, g_normalized, b_normalized)
+
+                    v = max_v
+
+                    if max_v == 0:
+                        s = 0
+                    else:
+                        s = (max_v - min_v) / max_v
+
+                    if max_v == min_v:
+                        h = 0
+                    elif max_v == r_normalized:
+                        h = 60 * (0 + (g_normalized - b_normalized) / (max_v - min_v))
+                    elif max_v == g_normalized:
+                        h = 60 * (2 + (b_normalized - r_normalized) / (max_v - min_v))
+                    elif max_v == b_normalized:
+                        h = 60 * (4 + (r_normalized - g_normalized) / (max_v - min_v))
+
+                    if h < 0:
+                        h += 360
+
+                    h_total += h
+                    s_total += s
+                    v_total += v
+
+                    result_image.setPixel(x, y, qRgb(int(h), int(s * 255), int(v * 255)))
+
+            # Hitung rata-rata komponen warna HSV
+            avg_h = h_total / (width * height)
+            avg_s = s_total / (width * height)
+            avg_v = v_total / (width * height)
+
+            # Tampilkan dalam dataframe
+            data = pd.DataFrame([[avg_h, avg_s, avg_v]], columns=['Average H', 'Average S', 'Average V'])
+
+            # Buat folder output jika belum ada
+            output_folder = 'output_excel'
+            if not os.path.exists(output_folder):
+                os.makedirs(output_folder)
+
+            # Buat nama file dengan format "hsvextraction-[date timestamp].xlsx"
+            timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+            output_filename = os.path.join(output_folder, f"hsvextraction-{timestamp}.xlsx")
+
+            data.to_excel(output_filename, index=False)
+
+            result_pixmap = QPixmap.fromImage(result_image)
+
+            self.afterImageView.setPixmap(result_pixmap)  # Use afterImageView
+            self.afterImageView.setAlignment(Qt.AlignCenter)
+
+
+    def featureExtractionRGB(self):
+        original_pixmap = self.beforeImageView.pixmap()  # Use beforeImageView
+        if original_pixmap:
+            original_image = original_pixmap.toImage()
+            width = original_image.width()
+            height = original_image.height()
+
+            result_image = QImage(width, height, QImage.Format_ARGB32)
+
+            r_total = 0
+            g_total = 0
+            b_total = 0
+
+            for y in range(height):
+                for x in range(width):
+                    pixel = original_image.pixel(x, y)
+
+                    red = qRed(pixel)
+                    green = qGreen(pixel)
+                    blue = qBlue(pixel)
+
+                    # Normalisasi nilai RGB ke dalam rentang [0, 1]
+                    r_normalized = red / 255.0
+                    g_normalized = green / 255.0
+                    b_normalized = blue / 255.0
+
+                    r_total += r_normalized
+                    g_total += g_normalized
+                    b_total += b_normalized
+
+                    result_image.setPixel(x, y, pixel)  # Menggunakan warna asli dalam citra hasil
+
+            # Hitung rata-rata komponen warna RGB
+            avg_r = r_total / (width * height)
+            avg_g = g_total / (width * height)
+            avg_b = b_total / (width * height)
+
+            # Tampilkan dalam dataframe
+            data = pd.DataFrame([[avg_r, avg_g, avg_b]], columns=['Average R', 'Average G', 'Average B'])
+
+            # Buat folder output jika belum ada
+            output_folder = 'output_excel'
+            if not os.path.exists(output_folder):
+                os.makedirs(output_folder)
+
+            # Buat nama file dengan format "rgbextraction-[date timestamp].xlsx"
+            timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+            output_filename = os.path.join(output_folder, f"rgbextraction-{timestamp}.xlsx")
+
+            data.to_excel(output_filename, index=False)
+
+            result_pixmap = QPixmap.fromImage(result_image)
+
+            self.afterImageView.setPixmap(result_pixmap)  # Display the result in afterImageView
+            self.afterImageView.setAlignment(Qt.AlignCenter)
             
-            # Export to Excel
-            with pd.ExcelWriter('color_extraction_data.xlsx') as writer:
-                original_image_data.to_excel(writer, sheet_name='Original Image Data', index=False)
-                ycrcb_image_data.to_excel(writer, sheet_name='YCRCb Image Data', index=False)
+    def featureExtractionRGBtoYCrCb(self):
+        original_pixmap = self.beforeImageView.pixmap()  # Mengambil gambar dari self.beforeImageView
+        if original_pixmap:
+            original_image = original_pixmap.toImage()
+            width = original_image.width()
+            height = original_image.height()
+
+            # Buat citra hasil ekstraksi fitur dengan format RGB32
+            result_image = QImage(width, height, QImage.Format_RGB32)
+
+            y_total = 0
+            cb_total = 0
+            cr_total = 0
+
+            for y in range(height):
+                for x in range(width):
+                    pixel_color = original_image.pixelColor(x, y)
+                    r, g, b = pixel_color.red(), pixel_color.green(), pixel_color.blue()
+
+                    # Hitung nilai Y, Cr, dan Cb
+                    y_value = int(0.299 * r + 0.587 * g + 0.114 * b)
+                    cr_value = int(128 + 0.5 * r - 0.41869 * g - 0.08131 * b)
+                    cb_value = int(128 - 0.16874 * r - 0.33126 * g + 0.5 * b)
+
+                    # Pastikan nilai-nilai berada dalam rentang yang valid
+                    y_value = min(max(y_value, 0), 255)
+                    cr_value = min(max(cr_value, 0), 255)
+                    cb_value = min(max(cb_value, 0), 255)
+
+                    # Set warna piksel di citra hasil
+                    result_image.setPixelColor(x, y, QColor(y_value, cr_value, cb_value))
+
+                    y_total += y_value
+                    cb_total += cb_value
+                    cr_total += cr_value
+
+            # Hitung rata-rata komponen warna YCrCb
+            avg_Y = y_total / (width * height)
+            avg_Cb = cb_total / (width * height)
+            avg_Cr = cr_total / (width * height)
+
+            # Tampilkan dalam dataframe
+            data = pd.DataFrame([[avg_Y, avg_Cb, avg_Cr]], columns=['Average Y', 'Average Cb', 'Average Cr'])
+
+            # Buat folder output jika belum ada
+            output_folder = 'output_excel'
+            if not os.path.exists(output_folder):
+                os.makedirs(output_folder)
+
+            # Buat nama file dengan format "ycrcbextraction-[date timestamp].xlsx"
+            timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+            output_filename = os.path.join(output_folder, f"ycrcbextraction-{timestamp}.xlsx")
+
+            data.to_excel(output_filename, index=False)
+
+            result_pixmap = QPixmap.fromImage(result_image)
+
+            self.afterImageView.setPixmap(result_pixmap)
+            self.afterImageView.setAlignment(Qt.AlignCenter)
+
     def apply_filter_gabor(self):
         if hasattr(self, 'pixmap'):
             # Convert the QPixmap to a numpy array
@@ -902,7 +1277,7 @@ class Ui_MainWindow(QMainWindow):
             plt.show()
 
     def animate_title(self):
-        titles = ["My Dark Mode App", "Welcome!", "Enjoy!", ""]
+        titles = ["Program PCV", "Yanuar Tri Laksono(E41210753)", "", ""]
         self.setWindowTitle(titles[self.counter])
         self.counter = (self.counter + 1) % len(titles)
 
@@ -1068,11 +1443,44 @@ class Ui_MainWindow(QMainWindow):
         self.apply_convolution(kernel)
 
     def apply_sharpen_filter(self):
-        # Implement a sharpening filter kernel (3x3)
-        kernel = np.array([[0, -1, 0],
-                           [-1, 5, -1],
-                           [0, -1, 0]])
-        self.apply_convolution(kernel)
+        original_pixmap = self.beforeImageView.pixmap()
+        if original_pixmap:
+            original_image = original_pixmap.toImage()
+            width = original_image.width()
+            height = original_image.height()
+
+            # Define a sharpening kernel (3x3)
+            kernel = np.array([[-1, -1, -1],
+                            [-1,  9, -1],
+                            [-1, -1, -1]])
+
+            # Create an empty image for the sharpened result
+            sharpened_image = QImage(width, height, QImage.Format_ARGB32)
+
+            # Apply the sharpening filter to each pixel in the image
+            for y in range(height):
+                for x in range(width):
+                    r_sum, g_sum, b_sum = 0, 0, 0
+
+                    for ky in range(-1, 2):
+                        for kx in range(-1, 2):
+                            pixel = original_image.pixel(x + kx, y + ky)
+                            kernel_value = kernel[ky + 1][kx + 1]
+
+                            r_sum += qRed(pixel) * kernel_value
+                            g_sum += qGreen(pixel) * kernel_value
+                            b_sum += qBlue(pixel) * kernel_value
+
+                    r_value = max(0, min(255, int(r_sum)))
+                    g_value = max(0, min(255, int(g_sum)))
+                    b_value = max(0, min(255, int(b_sum)))
+
+                    sharpened_image.setPixel(x, y, qRgb(r_value, g_value, b_value))
+
+            sharpened_pixmap = QPixmap.fromImage(sharpened_image)
+            self.afterImageView.setPixmap(sharpened_pixmap)
+            self.afterImageView.setAlignment(Qt.AlignCenter)
+        
 
     def apply_gaussian_blur_3x3(self):
         # Implement a 3x3 Gaussian blur filter kernel
