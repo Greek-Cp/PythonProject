@@ -1,0 +1,432 @@
+{
+    "type": {
+        "Action": {
+            "description": "Fast-paced with lots of movement and excitement.",
+            "locations": [
+                "Action City",
+                "Danger Zone",
+                "Thrilling Theme Park",
+                "Explosive Volcano",
+                "Chase City",
+                "Battlefield",
+                "Adventure Island",
+                "Spy Headquarters"
+            ],
+            "subcategories": [
+                "Brave Save",
+                "Fast Chase",
+                "Secret House",
+                "Spy Adventure",
+                "High-Speed Pursuits",
+                "Daring Rescue",
+                "Chase Scene",
+                "Hidden Fortress"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Adventure": {
+            "description": "Exciting journeys, quests, or explorations.",
+            "locations": [
+                "Remote Island",
+                "Hidden Valley",
+                "Ancient Ruins",
+                "Deep Jungle",
+                "Mysterious Mountain",
+                "Desert Oasis",
+                "Lost City",
+                "Secret Cave",
+                "Ocean",
+                "Secret Valley"
+            ],
+            "subcategories": [
+                "Mountain Trip",
+                "Cold Arctic",
+                "Ancient City",
+                "Underwater World",
+                "Desert Odyssey",
+                "Mountain Expedition",
+                "Arctic Adventure",
+                "Lost Civilization"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Animal Story": {
+            "description": "Animals as main characters, often with human-like behaviors.",
+            "locations": [
+                "Busy Farm",
+                "Animal Kingdom",
+                "Safari Park",
+                "Rainforest",
+                "Arctic Region",
+                "City Zoo",
+                "Wild Jungle",
+                "Coral Reef",
+                "Jurassic Jungle",
+                "Bird Sanctuary"
+            ],
+            "subcategories": [
+                "Wild Animals Land",
+                "Jungle Adventure",
+                "Cold Ice World",
+                "City Animals",
+                "Underwater Journey",
+                "Savannah Saga",
+                "Rainforest Mystery",
+                "Arctic Expedition"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Comedy": {
+            "description": "Light-hearted and humorous.",
+            "locations": [
+                "Funny Farm",
+                "Holiday Camp",
+                "Circus",
+                "Comical School",
+                "Laughing Town",
+                "Amusing Park",
+                "Joke Jungle"
+            ],
+            "subcategories": [
+                "Funny Stories",
+                "Holiday Fun",
+                "School Laughs",
+                "Silly Neighbors",
+                "Everyday Humor",
+                "Comical Misadventures",
+                "Hilarious Holidays",
+                "Laugh-Out-Loud School"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Fairy Tale": {
+            "description": "Classic tales with magical elements.",
+            "locations": [
+                "Enchanted Forest",
+                "Magical Kingdom",
+                "Royal Garden",
+                "Giant's Castle",
+                "Giant Tree",
+                "Crystal Lake",
+                "Fairy Village",
+                "Tower in the Clouds",
+                "Mystical Cave",
+                "Miniature town"
+            ],
+            "subcategories": [
+                "Giant Home",
+                "Secret Town",
+                "Magic Palace",
+                "Small House in the Woods",
+                "Magical Forest",
+                "Giant's Castle",
+                "Hidden Village",
+                "Cursed Palace"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Family": {
+            "description": "Centered around family dynamics.",
+            "locations": [
+                "Family Home",
+                "Grandparents' Farm",
+                "Ancestral Village",
+                "Holiday Retreat",
+                "Beach House",
+                "Mountain Lodge",
+                "City Apartment",
+                "Countryside Cottage"
+            ],
+            "subcategories": [
+                "Family Trip",
+                "Grandma and Grandpa",
+                "Brothers and Sisters",
+                "Family Party",
+                "Holiday Celebrations",
+                "Family Road Trip",
+                "Grandparents' Stories",
+                "Sibling Rivalry"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Fantasy": {
+            "description": "Set in magical realms with mythical creatures.",
+            "locations": [
+                "Magic Kingdom",
+                "Wizard's Tower",
+                "Elf Village",
+                "Floating Islands",
+                "Forbidden Forest",
+                "Crystal Caverns",
+                "Celestial City",
+                "Mystic Mountains",
+                "Hidden World",
+                "Lost City",
+                "Enchanted Valley"
+            ],
+            "subcategories": [
+                "Stars and Planets",
+                "Lost Land",
+                "Magic Valley",
+                "Dark Place",
+                "Enchanted Realms",
+                "Celestial Journey",
+                "Forgotten Realm",
+                "Mystic Valley"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Friendship": {
+            "description": "Focusing on the value of friends and relationships.",
+            "locations": [
+                "Friendly Neighborhood",
+                "Happy School",
+                "Summer Camp",
+                "Best Friends' House",
+                "Community Center",
+                "Playful Playground",
+                "Treehouse Club",
+                "Friendship Beach",
+                "Fun Fair"
+            ],
+            "subcategories": [
+                "Camp Friends",
+                "Friends Next Door",
+                "New Kid in Town",
+                "School Team",
+                "Unexpected Friendships",
+                "Summer Camp",
+                "Neighborhood Adventures",
+                "Mysterious New Friend"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Historical Fiction": {
+            "description": "Set in a specific historical period with fictional elements.",
+            "locations": [
+                "Ancient Empire",
+                "Historic Town",
+                "Old City",
+                "Ancient Caravan",
+                "Historic Battlefield",
+                "Castle",
+                "Ship",
+                "Desert Island"
+            ],
+            "subcategories": [
+                "Old Art World",
+                "New Land Story",
+                "Big Machines Time",
+                "Pirates' Sea",
+                "Ancient Egypt",
+                "Ancient China",
+                "Ancient Japan",
+                "Roman Empire",
+                "Viking Age",
+                "Feudal Japan",
+                "Mughal Empire",
+                "Mali empire",
+                "Ancient Greece",
+                "Celts",
+                "Ottomans",
+                "Byzantium",
+                "Venetians",
+                "Mayan Civilization"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Moral Stories": {
+            "description": "With a clear moral or lesson.",
+            "locations": [
+                "Peaceful Village",
+                "Busy City",
+                "Mountain",
+                "Oasis",
+                "Island",
+                "Forest",
+                "Wild Jungle",
+                "Snowy Plains",
+                "Ancient Caravan"
+            ],
+            "subcategories": [
+                "Sharing is Caring",
+                "Telling the Truth",
+                "Be Brave",
+                "Patience",
+                "Respect",
+                "Responsibility",
+                "The Gift of Giving",
+                "Truth Triumphs"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Mystery": {
+            "description": "Puzzles or secrets to be solved.",
+            "locations": [
+                "Old Mansion",
+                "Abandoned Factory",
+                "Secluded Village",
+                "Mystery Train",
+                "Secret Library",
+                "Haunted School",
+                "Deserted Island",
+                "Mystic Museum"
+            ],
+            "subcategories": [
+                "Old Time Capsule",
+                "Vanishing Trick",
+                "Hidden Door",
+                "Secret Island",
+                "Mystery",
+                "Disappearing Act",
+                "Secret Passage"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "School Life": {
+            "description": "Set in or around a school environment.",
+            "locations": [
+                "Happy High School",
+                "Creative Elementary",
+                "Museum",
+                "Sport Centre",
+                "Art School",
+                "Science Institute",
+                "Train",
+                "Treck Trail",
+                "Zoo"
+            ],
+            "subcategories": [
+                "New Kid in Class",
+                "School Trip",
+                "Play at School",
+                "Science Day",
+                "Teacher Tales",
+                "New Teacher",
+                "Field Trip Fiasco",
+                "Sports Day",
+                "School Holidays",
+                "School Play Drama"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Science Fiction": {
+            "description": "Exploring futuristic or space-related themes.",
+            "locations": [
+                "Space Station",
+                "Alien Planet",
+                "Future World",
+                "Futuristic City",
+                "Robot Factory",
+                "Time Machine",
+                "Virtual Reality",
+                "Distant Galaxy",
+                "Robot City",
+                "Underground Bunker"
+            ],
+            "subcategories": [
+                "Computer World",
+                "Space People",
+                "Time Jump",
+                "Future Earth",
+                "Intergalactic War",
+                "Cyberworld",
+                "Galactic Federation",
+                "Quantum Leap"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Sports": {
+            "description": "Centered around sports or athletic competitions.",
+            "locations": [
+                "Olympic Stadium",
+                "Football Field",
+                "Basketball Court",
+                "Skate Park",
+                "Swimming Pool",
+                "Racing Track",
+                "Fitness Center",
+                "Gymnastics Arena",
+                "Baseball Diamond"
+            ],
+            "subcategories": [
+                "Big Soccer Game",
+                "Olympic Heroes",
+                "Winner's Story",
+                "Big Match",
+                "Extreme Challenges",
+                "World Cup Journey",
+                "Olympic Dreams",
+                "Underdog Story"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Superhero": {
+            "description": "Characters with superpowers or extraordinary abilities.",
+            "locations": [
+                "Superhero City",
+                "Secret Base",
+                "Hidden Fortress",
+                "Dangerous Streets",
+                "Mysterious Island",
+                "Alien World",
+                "Parallel Universe",
+                "High-Tech Facility",
+                "Abandoned Warehouse",
+                "Underground Base",
+                "Parallel World",
+                "Underwater City"
+            ],
+            "subcategories": [
+                "Invisible Adventure",
+                "Another World",
+                "Ancient Magic",
+                "Secret Place",
+                "Galactic Guardians",
+                "Invisible Forces",
+                "Parallel Dimensions",
+                "Ancient Powers"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        },
+        "Time Travel": {
+            "description": "Characters traveling through time.",
+            "locations": [
+                "Ancient Egypt",
+                "Medieval Times",
+                "Future City",
+                "Pirate Age",
+                "Wild West",
+                "Space Age",
+                "Jungle"
+            ],
+            "subcategories": [
+                "Old-Fashioned Times",
+                "City of the Future",
+                "Alternate Timelines",
+                "Medieval Quest",
+                "Victorian Era",
+                "Stone Age",
+                "Pirate Age",
+                "Dinosaur Era"
+            ],
+            "img_locations": [],
+            "img_subcategories": []
+        }
+    }
+}
