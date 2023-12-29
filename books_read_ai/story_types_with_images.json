@@ -114,8 +114,28 @@
                 "Rainforest Mystery",
                 "Arctic Expedition"
             ],
-            "img_locations": [],
-            "img_subcategories": []
+            "img_locations": [
+                "assets\\AnimalStory\\Locations\\10_bird_sanctuary.png",
+                "assets\\AnimalStory\\Locations\\1_busy_farm.png",
+                "assets\\AnimalStory\\Locations\\2_animal_kingdom.png",
+                "assets\\AnimalStory\\Locations\\3_safari_park.png",
+                "assets\\AnimalStory\\Locations\\4_rainforest.png",
+                "assets\\AnimalStory\\Locations\\5_arctic_region.png",
+                "assets\\AnimalStory\\Locations\\6_city_zoo.png",
+                "assets\\AnimalStory\\Locations\\7_wild_jungle.png",
+                "assets\\AnimalStory\\Locations\\8_coral_reef.png",
+                "assets\\AnimalStory\\Locations\\9_jurassic_jungle.png"
+            ],
+            "img_subcategories": [
+                "assets\\AnimalStory\\Subcategories\\1_wild_animals_land.png",
+                "assets\\AnimalStory\\Subcategories\\2_jungle_adventure.png",
+                "assets\\AnimalStory\\Subcategories\\3_cold_ice_world.png",
+                "assets\\AnimalStory\\Subcategories\\4_city_animals.png",
+                "assets\\AnimalStory\\Subcategories\\5_underwater_journey.png",
+                "assets\\AnimalStory\\Subcategories\\6_savannah_saga.png",
+                "assets\\AnimalStory\\Subcategories\\7_rainforest_mystery.png",
+                "assets\\AnimalStory\\Subcategories\\8_arctic_expedition.png"
+            ]
         },
         "Comedy": {
             "description": "Light-hearted and humorous.",
@@ -428,8 +448,27 @@
                 "The Gift of Giving",
                 "Truth Triumphs"
             ],
-            "img_locations": [],
-            "img_subcategories": []
+            "img_locations": [
+                "assets\\MoralStories\\Locations\\1_peaceful_village.png",
+                "assets\\MoralStories\\Locations\\2_busy_city.png",
+                "assets\\MoralStories\\Locations\\3_mountain.png",
+                "assets\\MoralStories\\Locations\\4_oasis.png",
+                "assets\\MoralStories\\Locations\\5_island.png",
+                "assets\\MoralStories\\Locations\\6_forest.png",
+                "assets\\MoralStories\\Locations\\7_wild_jungle.png",
+                "assets\\MoralStories\\Locations\\8_snowy_plains.png",
+                "assets\\MoralStories\\Locations\\9_ancient_caravan.png"
+            ],
+            "img_subcategories": [
+                "assets\\MoralStories\\Subcategories\\1_sharing_is_caring.png",
+                "assets\\MoralStories\\Subcategories\\2_telling_the_truth.png",
+                "assets\\MoralStories\\Subcategories\\3_be_brave.png",
+                "assets\\MoralStories\\Subcategories\\4_patience.png",
+                "assets\\MoralStories\\Subcategories\\5_respect.png",
+                "assets\\MoralStories\\Subcategories\\6_responsibility.png",
+                "assets\\MoralStories\\Subcategories\\7_the_gift_of_giving.png",
+                "assets\\MoralStories\\Subcategories\\8_truth_triumphs.png"
+            ]
         },
         "Mystery": {
             "description": "Puzzles or secrets to be solved.",
@@ -545,8 +584,28 @@
                 "Galactic Federation",
                 "Quantum Leap"
             ],
-            "img_locations": [],
-            "img_subcategories": []
+            "img_locations": [
+                "assets\\ScienceFiction\\Locations\\10_underground_bunker.png",
+                "assets\\ScienceFiction\\Locations\\1_space_station.png",
+                "assets\\ScienceFiction\\Locations\\2_alien_planet.png",
+                "assets\\ScienceFiction\\Locations\\3_future_world.png",
+                "assets\\ScienceFiction\\Locations\\4_futuristic_city.png",
+                "assets\\ScienceFiction\\Locations\\5_robot_factory.png",
+                "assets\\ScienceFiction\\Locations\\6_time_machine.png",
+                "assets\\ScienceFiction\\Locations\\7_virtual_reality.png",
+                "assets\\ScienceFiction\\Locations\\8_distant_galaxy.png",
+                "assets\\ScienceFiction\\Locations\\9_robot_city.png"
+            ],
+            "img_subcategories": [
+                "assets\\ScienceFiction\\Subcategories\\1_computer_world.png",
+                "assets\\ScienceFiction\\Subcategories\\2_space_people.png",
+                "assets\\ScienceFiction\\Subcategories\\3_time_jump.png",
+                "assets\\ScienceFiction\\Subcategories\\4_future_earth.png",
+                "assets\\ScienceFiction\\Subcategories\\5_intergalactic_war.png",
+                "assets\\ScienceFiction\\Subcategories\\6_cyberworld.png",
+                "assets\\ScienceFiction\\Subcategories\\7_galactic_federation.png",
+                "assets\\ScienceFiction\\Subcategories\\8_quantum_leap.png"
+            ]
         },
         "Sports": {
             "description": "Centered around sports or athletic competitions.",
@@ -665,7 +724,15 @@
                 "Pirate Age",
                 "Dinosaur Era"
             ],
-            "img_locations": [],
+            "img_locations": [
+                "assets\\TimeTravel\\Locations\\1_ancient_egypt.png",
+                "assets\\TimeTravel\\Locations\\2_medieval_times.png",
+                "assets\\TimeTravel\\Locations\\3_future_city.png",
+                "assets\\TimeTravel\\Locations\\4_pirate_age.png",
+                "assets\\TimeTravel\\Locations\\5_wild_west.png",
+                "assets\\TimeTravel\\Locations\\6_space_age.png",
+                "assets\\TimeTravel\\Locations\\7_jungle.png"
+            ],
             "img_subcategories": [
                 "assets\\TimeTravel\\Subcategories\\1_old-fashioned_times.png",
                 "assets\\TimeTravel\\Subcategories\\2_city_of_the_future.png",

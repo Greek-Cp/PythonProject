@@ -32,36 +32,8 @@
         "subcategories": {}
     },
     "HistoricalFiction": {
-        "locations": {
-            "ancient_empire": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Locations\\1_ancient_empire.png",
-            "historic_town": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Locations\\2_historic_town.png",
-            "old_city": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Locations\\3_old_city.png",
-            "ancient_caravan": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Locations\\4_ancient_caravan.png",
-            "historic_battlefield": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Locations\\5_historic_battlefield.png",
-            "castle": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Locations\\6_castle.png",
-            "ship": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Locations\\7_ship.png",
-            "desert_island": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Locations\\8_desert_island.png"
-        },
-        "subcategories": {
-            "old_art_world": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\1_old_art_world.png",
-            "new_land_story": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\2_new_land_story.png",
-            "big_machines_time": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\3_big_machines_time.png",
-            "pirates'_sea": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\4_pirates'_sea.png",
-            "ancient_egypt": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\5_ancient_egypt.png",
-            "ancient_china": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\6_ancient_china.png",
-            "ancient_japan": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\7_ancient_japan.png",
-            "roman_empire": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\8_roman_empire.png",
-            "viking_age": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\9_viking_age.png",
-            "feudal_japan": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\10_feudal_japan.png",
-            "mughal_empire": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\11_mughal_empire.png",
-            "mali_empire": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\12_mali_empire.png",
-            "ancient_greece": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\13_ancient_greece.png",
-            "celts": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\14_celts.png",
-            "ottomans": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\15_ottomans.png",
-            "byzantium": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\16_byzantium.png",
-            "venetians": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\17_venetians.png",
-            "mayan_civilization": "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType\\HistoricalFiction\\Subcategories\\18_mayan_civilization.png"
-        }
+        "locations": {},
+        "subcategories": {}
     },
     "MoralStories": {
         "locations": {},
