@@ -1,400 +1,186 @@
 {
-    "type":{
-        "Action": {
-            "description": "Fast-paced with lots of movement and excitement.",
-            "locations": [
-                "Action City",
-                "Danger Zone",
-                "Thrilling Theme Park",
-                "Explosive Volcano",
-                "Chase City",
-                "Battlefield",
-                "Adventure Island",
-                "Spy Headquarters"
-            ],
-            "subcategories": [
-                "Brave Save",
-                "Fast Chase",
-                "Secret House",
-                "Spy Adventure",
-                "High-Speed Pursuits",
-                "Daring Rescue",
-                "Chase Scene",
-                "Hidden Fortress"
-            ]
-        },
-        "Adventure": {
-            "description": "Exciting journeys, quests, or explorations.",
-            "locations": [
-                "Remote Island",
-                "Hidden Valley",
-                "Ancient Ruins",
-                "Deep Jungle",
-                "Mysterious Mountain",
-                "Desert Oasis",
-                "Lost City",
-                "Secret Cave",
-                "Ocean",
-                "Secret Valley"
-            ],
-            "subcategories": [
-                "Mountain Trip",
-                "Cold Arctic",
-                "Ancient City",
-                "Underwater World",
-                "Desert Odyssey",
-                "Mountain Expedition",
-                "Arctic Adventure",
-                "Lost Civilization"
-            ]
-        },
-        "Animal Story": {
-            "description": "Animals as main characters, often with human-like behaviors.",
-            "locations": [
-                "Busy Farm",
-                "Animal Kingdom",
-                "Safari Park",
-                "Rainforest",
-                "Arctic Region",
-                "City Zoo",
-                "Wild Jungle",
-                "Coral Reef",
-                "Jurassic Jungle",
-                "Bird Sanctuary"
-            ],
-            "subcategories": [
-                "Wild Animals Land",
-                "Jungle Adventure",
-                "Cold Ice World",
-                "City Animals",
-                "Underwater Journey",
-                "Savannah Saga",
-                "Rainforest Mystery",
-                "Arctic Expedition"
-            ]
-        },
-        "Comedy": {
-            "description": "Light-hearted and humorous.",
-            "locations": [
-                "Funny Farm",
-                "Holiday Camp",
-                "Circus",
-                "Comical School",
-                "Laughing Town",
-                "Amusing Park",
-                "Joke Jungle"
-            ],
-            "subcategories": [
-                "Funny Stories",
-                "Holiday Fun",
-                "School Laughs",
-                "Silly Neighbors",
-                "Everyday Humor",
-                "Comical Misadventures",
-                "Hilarious Holidays",
-                "Laugh-Out-Loud School"
-            ]
-        },
-        "Fairy Tale": {
-            "description": "Classic tales with magical elements.",
-            "locations": [
-                "Enchanted Forest",
-                "Magical Kingdom",
-                "Royal Garden",
-                "Giant's Castle",
-                "Giant Tree",
-                "Crystal Lake",
-                "Fairy Village",
-                "Tower in the Clouds",
-                "Mystical Cave",
-                "Miniature town"
-            ],
-            "subcategories": [
-                "Giant Home",
-                "Secret Town",
-                "Magic Palace",
-                "Small House in the Woods",
-                "Magical Forest",
-                "Giant's Castle",
-                "Hidden Village",
-                "Cursed Palace"
-            ]
-        },
-        "Family": {
-            "description": "Centered around family dynamics.",
-            "locations": [
-                "Family Home",
-                "Grandparents' Farm",
-                "Ancestral Village",
-                "Holiday Retreat",
-                "Beach House",
-                "Mountain Lodge",
-                "City Apartment",
-                "Countryside Cottage"
-            ],
-            "subcategories": [
-                "Family Trip",
-                "Grandma and Grandpa",
-                "Brothers and Sisters",
-                "Family Party",
-                "Holiday Celebrations",
-                "Family Road Trip",
-                "Grandparents' Stories",
-                "Sibling Rivalry"
-            ]
-        },
-        "Fantasy": {
-            "description": "Set in magical realms with mythical creatures.",
-            "locations": [
-                "Magic Kingdom",
-                "Wizard's Tower",
-                "Elf Village",
-                "Floating Islands",
-                "Forbidden Forest",
-                "Crystal Caverns",
-                "Celestial City",
-                "Mystic Mountains",
-                "Hidden World",
-                "Lost City",
-                "Enchanted Valley"
-            ],
-            "subcategories": [
-                "Stars and Planets",
-                "Lost Land",
-                "Magic Valley",
-                "Dark Place",
-                "Enchanted Realms",
-                "Celestial Journey",
-                "Forgotten Realm",
-                "Mystic Valley"
-            ]
-          },
-          "Friendship": {
-              "description": "Focusing on the value of friends and relationships.",
-              "locations": [
-                  "Friendly Neighborhood",
-                  "Happy School",
-                  "Summer Camp",
-                  "Best Friends' House",
-                  "Community Center",
-                  "Playful Playground",
-                  "Treehouse Club",
-                  "Friendship Beach",
-                  "Fun Fair"
-              ],
-              "subcategories": [
-                  "Camp Friends",
-                  "Friends Next Door",
-                  "New Kid in Town",
-                  "School Team",
-                  "Unexpected Friendships",
-                  "Summer Camp",
-                  "Neighborhood Adventures",
-                  "Mysterious New Friend"
-              ]
-          },
-        "Historical Fiction": {
-            "description": "Set in a specific historical period with fictional elements.",
-            "locations": [
-                "Ancient Empire",
-                "Historic Town",
-                "Old City",
-                "Ancient Caravan",
-                "Historic Battlefield",
-                "Castle",
-                "Ship",
-                "Desert Island"
-            ],
-            "subcategories": [
-                "Old Art World",
-                "New Land Story",
-                "Big Machines Time",
-                "Pirates' Sea",
-                "Ancient Egypt",
-                "Ancient China",
-                "Ancient Japan",
-                "Roman Empire",
-                "Viking Age",
-                "Feudal Japan",
-                "Mughal Empire",
-                "Mali empire",
-                "Ancient Greece",
-                "Celts",
-                "Ottomans",
-                "Byzantium",
-                "Venetians",
-                "Mayan Civilization"
-            ]
-        },
-        "Moral Stories": {
-            "description": "With a clear moral or lesson.",
-            "locations": [
-                "Peaceful Village",
-                "Busy City",
-                "Mountain",
-                "Oasis",
-                "Island",
-                "Forest",
-                "Wild Jungle",
-                "Snowy Plains",
-                "Ancient Caravan"
-            ],
-            "subcategories": [
-                "Sharing is Caring",
-                "Telling the Truth",
-                "Be Brave",
-                "Patience",
-                "Respect",
-                "Responsibility",
-                "The Gift of Giving",
-                "Truth Triumphs"
-            ]
-        },
-        "Mystery": {
-            "description": "Puzzles or secrets to be solved.",
-            "locations": [
-                "Old Mansion",
-                "Abandoned Factory",
-                "Secluded Village",
-                "Mystery Train",
-                "Secret Library",
-                "Haunted School",
-                "Deserted Island",
-                "Mystic Museum"
-            ],
-            "subcategories": [
-                "Old Time Capsule",
-                "Vanishing Trick",
-                "Hidden Door",
-                "Secret Island",
-                "Mystery",
-                "Disappearing Act",
-                "Secret Passage"
-            ]
-        },
-        "School Life": {
-            "description": "Set in or around a school environment.",
-            "locations": [
-                "Happy High School",
-                "Creative Elementary",
-                "Museum",
-                "Sport Centre",
-                "Art School",
-                "Science Institute",
-                "Train",
-                "Treck Trail",
-                "Zoo"
-            ],
-            "subcategories": [
-                "New Kid in Class",
-                "School Trip",
-                "Play at School",
-                "Science Day",
-                "Teacher Tales",
-                "New Teacher",
-                "Field Trip Fiasco",
-                "Sports Day",
-                "School Holidays",
-                "School Play Drama"
-            ]
-        },
-        "Science Fiction": {
-            "description": "Exploring futuristic or space-related themes.",
-            "locations": [
-                "Space Station",
-                "Alien Planet",
-                "Future World",
-                "Futuristic City",
-                "Robot Factory",
-                "Time Machine",
-                "Virtual Reality",
-                "Distant Galaxy",
-                "Robot City",
-                "Underground Bunker"
-            ],
-            "subcategories": [
-                "Computer World",
-                "Space People",
-                "Time Jump",
-                "Future Earth",
-                "Intergalactic War",
-                "Cyberworld",
-                "Galactic Federation",
-                "Quantum Leap"
-            ]
-        },
-        "Sports": {
-            "description": "Centered around sports or athletic competitions.",
-            "locations": [
-                "Olympic Stadium",
-                "Football Field",
-                "Basketball Court",
-                "Skate Park",
-                "Swimming Pool",
-                "Racing Track",
-                "Fitness Center",
-                "Gymnastics Arena",
-                "Baseball Diamond"
-            ],
-            "subcategories": [
-                "Big Soccer Game",
-                "Olympic Heroes",
-                "Winner's Story",
-                "Big Match",
-                "Extreme Challenges",
-                "World Cup Journey",
-                "Olympic Dreams",
-                "Underdog Story"
-            ]
-        },
-        "Superhero": {
-            "description": "Characters with superpowers or extraordinary abilities.",
-            "locations": [
-                "Superhero City",
-                "Secret Base",
-                "Hidden Fortress",
-                "Dangerous Streets",
-                "Mysterious Island",
-                "Alien World",
-                "Parallel Universe",
-                "High-Tech Facility",
-                "Abandoned Warehouse",
-                "Underground Base",
-                "Parallel World",
-                "Underwater City"
-            ],
-            "subcategories": [
-                "Invisible Adventure",
-                "Another World",
-                "Ancient Magic",
-                "Secret Place",
-                "Galactic Guardians",
-                "Invisible Forces",
-                "Parallel Dimensions",
-                "Ancient Powers"
-            ]
-        },
-        "Time Travel": {
-            "description": "Characters traveling through time.",
-            "locations": [
-                "Ancient Egypt",
-                "Medieval Times",
-                "Future City",
-                "Pirate Age",
-                "Wild West",
-                "Space Age",
-                "Jungle"
-            ],
-            "subcategories": [
-                "Old-Fashioned Times",
-                "City of the Future",
-                "Alternate Timelines",
-                "Medieval Quest",
-                "Victorian Era",
-                "Stone Age",
-                "Pirate Age",
-                "Dinosaur Era"
-            ]
-        }
-    }
+
+    "main_character": [
+        {"name": "Adventurous Explorer", "description": "Loves discovering new places and facing challenges."},
+        {"name": "Wise Wizard", "description": "Has magical powers and ancient knowledge."},
+        {"name": "Brave Knight", "description": "Fearless warrior with a noble heart."},
+        {"name": "Curious Scientist", "description": "Enjoys experimenting and solving puzzles."},
+        {"name": "playful Animal", "description": "Playful and clever, often getting into funny situations."},
+        {"name": "Inventive Genius", "description": "Creates amazing gadgets and solves problems."},
+        {"name": "Kind-hearted Princess", "description": "Caring and brave, ready to help others."},
+        {"name": "Daring Detective", "description": "Solves mysteries and uncovers secrets."},
+        {"name": "Fearless Superhero", "description": "Has special powers to fight evil and protect people."},
+        {"name": "Friendly Robot", "description": "Artificial intelligence with a heart of gold."},
+        {"name": "Witty Comedian", "description": "Always making people laugh with jokes and pranks."},
+        {"name": "Skilled Athlete", "description": "Excels in sports and loves competition."},
+        {"name": "Creative Artist", "description": "Expresses themselves through art and creativity."},
+        {"name": "Intrepid Reporter", "description": "Always on the lookout for a big story."},
+        {"name": "Magical Creature", "description": "Enchanted being with special abilities."},
+        {"name": "Space Explorer", "description": "Travels through space, discovering new worlds."},
+        {"name": "Mystery Solver", "description": "Has a keen eye for detail and loves to solve puzzles."},
+        {"name": "Time Traveler", "description": "Journeys through different eras, experiencing historical events first-hand."},
+        {"name": "Enchanted Mermaid", "description": "Lives in the ocean, has magical abilities, and explores underwater kingdoms."},
+        {"name": "Young Inventor", "description": "A child genius who creates incredible machines and gadgets."},
+        {"name": "Misunderstood Monster", "description": "Looks scary but has a kind heart, trying to find its place in the world."},
+        {"name": "Space Alien", "description": "Friendly and curious about Earth, trying to understand human ways."},
+        {"name": "Magical Fairy", "description": "Tiny and bright, with wings and magical powers, protector of nature."},
+        {"name": "Ancient Warrior", "description": "From a long-ago time, skilled in battle and wise in leadership."},
+        {"name": "Magical Princess", "description": "Uses powers for good and rules her kingdom wisely."},
+        {"name": "Skilled Archer", "description": "Embarks on adventures, showcasing archery skills."},
+        {"name": "Eco Warrior", "description": "Fights to protect the environment."},
+        {"name": "Gifted Chef", "description": "Cooks delicious meals and experiments with recipes."}
+    ],
+    "problems": [
+        {"name": "A Mysterious Disappearance", "description": "Someone or something important has vanished."},
+        {"name": "A Forbidden Quest", "description": "The character must undertake a dangerous journey."},
+        {"name": "An Ancient Curse", "description": "Dealing with a curse affecting their world."},
+        {"name": "A Rival's Challenge", "description": "A competitor or rival is causing problems."},
+        {"name": "Lost Treasure", "description": "The search for a lost or hidden treasure."},
+        {"name": "A Misunderstanding", "description": "A communication breakdown leading to conflict."},
+        {"name": "A Natural Disaster", "description": "Facing a storm, earthquake, or other phenomena."},
+        {"name": "An Environmental Crisis", "description": "Issues like pollution or endangered animals."},
+        {"name": "A Personal Fear or Doubt", "description": "Internal struggles and self-doubt."},
+        {"name": "A Broken Machine or Invention", "description": "Something important needs fixing."},
+        {"name": "A Moral Dilemma", "description": "A tough decision questioning morals or ethics."},
+        {"name": "An Unexpected Transformation", "description": "Dealing with a sudden change."},
+        {"name": "A Mischievous Antagonist", "description": "A troublesome character causing chaos."},
+        {"name": "A Threat to Their Home", "description": "Their home or community is in danger."},
+        {"name": "A Secret to Uncover", "description": "There's a secret that needs to be revealed."},
+        {"name": "Lost in a Strange Place", "description": "Lost or stranded in an unfamiliar location."},
+        {"name": "A Challenge to Prove Themselves", "description": "Facing doubts about their abilities."},
+        {"name": "Balancing Responsibilities", "description": "Juggling multiple important tasks or roles."},
+        {"name": "Breaking Stereotypes", "description": "Overcoming societal expectations."},
+        {"name": "Finding Their Voice", "description": "Struggling to be heard in a male-dominated area."}
+    ],
+    "methods": [
+        {"name": "Seeking Help from Friends", "description": "Relies on the support and assistance of friends."},
+        {"name": "Using Intelligence and Wit", "description": "Solves the problem through clever thinking and strategies."},
+        {"name": "Embarking on a Quest", "description": "Undertakes a journey or quest to find a solution."},
+        {"name": "Magical or Supernatural Means", "description": "Employs magical powers or supernatural aids."},
+        {"name": "Building or Inventing Something", "description": "Creates a gadget or tool to resolve the issue."},
+        {"name": "Diplomacy and Negotiation", "description": "Solves the problem through talking and negotiating."},
+        {"name": "Physical Strength or Bravery", "description": "Uses physical prowess or bravery to overcome challenges."},
+        {"name": "Learning New Skills", "description": "Acquires new knowledge or skills crucial to solving the problem."},
+        {"name": "Persistence and Perseverance", "description": "Continuously tries and does not give up despite setbacks."},
+        {"name": "Seeking Wisdom from Elders or Mentors", "description": "Gets advice from someone more experienced or wiser."},
+        {"name": "Stealth and Cunning", "description": "Uses stealthy methods or cunning plans to overcome obstacles."},
+        {"name": "Harnessing Natural Resources", "description": "Utilizes the natural environment or resources effectively."},
+        {"name": "Inspiring Others to Help", "description": "Motivates or inspires others to contribute to the solution."},
+        {"name": "Facing Fears Head-On", "description": "Confronts and overcomes personal fears or doubts."},
+        {"name": "Using Humor or Creativity", "description": "Solves problems through creative thinking or humor."},
+        {"name": "Gathering Information or Clues", "description": "Conducts research or gathers information to understand the problem better."}
+    ],
+    "abilities": [
+        {"name": "Magic Wand", "description": "A wand that can cast various magical spells."},
+        {"name": "Invisibility Cloak", "description": "A cloak that renders the wearer invisible."},
+        {"name": "Time Machine", "description": "A device capable of traveling through time."},
+        {"name": "Flying Broomstick", "description": "A broomstick that allows the character to fly."},
+        {"name": "Telepathy", "description": "The ability to read minds and communicate mentally."},
+        {"name": "Super Strength", "description": "Exceptional physical strength."},
+        {"name": "Shape-Shifting", "description": "The ability to change appearance at will."},
+        {"name": "Healing Powers", "description": "The ability to heal injuries or illnesses."},
+        {"name": "Enchanted Sword", "description": "A powerful sword with magical properties."},
+        {"name": "Animal Communication", "description": "The ability to talk to and understand animals."},
+        {"name": "Infinite Knowledge", "description": "Access to vast amounts of knowledge."},
+        {"name": "Teleportation", "description": "The ability to instantly travel to different places."},
+        {"name": "Control over Elements", "description": "Power over natural elements like fire, water, air, and earth."},
+        {"name": "Super Speed", "description": "The ability to move incredibly fast."},
+        {"name": "X-Ray Vision", "description": "The power to see through solid objects."},
+        {"name": "Genius Intellect", "description": "Exceptional intelligence and problem-solving skills."},
+        {"name": "Eternal Youth", "description": "The ability to remain young forever."},
+        {"name": "Invincibility", "description": "Immunity to all forms of physical harm."}
+    ],
+    "obstacles": [
+        {"name": "A Treacherous Journey", "description": "Difficult travels through dangerous terrains."},
+        {"name": "A Formidable Enemy", "description": "Confrontation with a powerful adversary."},
+        {"name": "A Difficult Puzzle", "description": "Solving a complex and challenging puzzle."},
+        {"name": "A Test of Courage", "description": "Facing a situation that tests bravery."},
+        {"name": "Betrayal", "description": "Dealing with the aftermath of a betrayal by a trusted ally."},
+        {"name": "A Race Against Time", "description": "Completing a crucial task within a tight deadline."},
+        {"name": "Overcoming Fear", "description": "Confronting and overcoming personal fears."},
+        {"name": "A Moral Conflict", "description": "Making a tough decision in a morally ambiguous situation."},
+        {"name": "Resource Scarcity", "description": "Surviving with limited resources."},
+        {"name": "Navigating Social Challenges", "description": "Handling complex social dynamics and relationships."},
+        {"name": "Environmental Hazards", "description": "Surviving in hazardous environmental conditions."},
+        {"name": "A Challenging Friendship", "description": "Dealing with a friendship that faces obstacles."},
+        {"name": "A Secret Identity", "description": "Maintaining a secret identity or double life."},
+        {"name": "A Quest for Redemption", "description": "Seeking redemption for past mistakes."},
+        {"name": "Unraveling a Mystery", "description": "Uncovering the truth behind a deep mystery."},
+        {"name": "A Battle of Wits", "description": "Engaging in a mental battle with a clever opponent."},
+        {"name": "An Internal Struggle", "description": "Dealing with internal conflicts or struggles."},
+        {"name": "A Magical Curse", "description": "Overcoming the effects of a magical curse."}
+      ],
+  
+    "feelings": [
+        {"name": "Excited and Curious", "description": "Eager to explore and discover new things."},
+        {"name": "Nervous but Brave", "description": "A bit scared, but ready to face challenges."},
+        {"name": "Reluctant but Determined", "description": "Hesitant at first, but committed to seeing it through."},
+        {"name": "Confident and Bold", "description": "Sure of themselves and ready for anything."},
+        {"name": "Stressed but Persistent", "description": "Feeling the pressure but persisting regardless."},
+        {"name": "Joyful and Adventurous", "description": "Finding joy in the thrill of adventure."},
+        {"name": "Cautious and Observant", "description": "Careful and always watching out for danger."},
+        {"name": "Skeptical but Open-Minded", "description": "Doubtful but willing to give it a chance."},
+        {"name": "Dreamy and Imaginative", "description": "Lost in the wonder and possibilities of the journey."},
+        {"name": "Focused and Serious", "description": "Concentrated on the goal, taking things seriously."},
+        {"name": "Amused and Playful", "description": "Finding the fun and humor in the situation."},
+        {"name": "Inquisitive and Thoughtful", "description": "Full of questions and deeply reflective."},
+        {"name": "Anxious but Resourceful", "description": "Worried, but using their smarts to cope."},
+        {"name": "Loyal and Supportive", "description": "Standing by their friends and ready to help."},
+        {"name": "Independent and Free-Spirited", "description": "Loving the freedom and making their own choices."},
+        {"name": "Empathetic and Caring", "description": "Concerned about others and wanting to help."}
+    ],
+  
+    "antagonists": [
+        {"name": "A Powerful Villain", "description": "A villain causing major trouble, regardless of their form."},
+        {"name": "A Rival Team", "description": "A group of competitors or rivals posing a challenge."},
+        {"name": "Nature's Fury", "description": "Natural events like storms or earthquakes causing havoc."},
+        {"name": "A Mischievous Trickster", "description": "A character causing problems through cunning and tricks."},
+        {"name": "An Alien Force", "description": "Extraterrestrial beings with mysterious intentions."},
+        {"name": "A Corporate Giant", "description": "A large entity or corporation with conflicting interests."},
+        {"name": "A Family Feud", "description": "Conflicts or challenges stemming from family issues."},
+        {"name": "A Magical Curse", "description": "A curse bringing challenges or dangers."},
+        {"name": "A Secret Society", "description": "A group with secretive goals or hidden agendas."},
+        {"name": "An Environmental Threat", "description": "Challenges arising from environmental issues or disasters."},
+        {"name": "A Personal Struggle", "description": "Internal conflicts or struggles within the character."},
+        {"name": "A Technological Glitch", "description": "Problems caused by malfunctioning or rogue technology."},
+        {"name": "A Legendary Beast", "description": "A mythical or legendary creature posing a threat."},
+        {"name": "A Forbidden Spell", "description": "A spell or magical act that has dangerous repercussions."},
+        {"name": "An Ancient Prophecy", "description": "A prophecy that foretells challenges or conflicts."},
+        {"name": "A Lost Artifact", "description": "A search for a powerful and mysterious artifact."},
+        {"name": "A Mystical Realm", "description": "Challenges arising from entering or interacting with a mystical world."},
+        {"name": "A Forgotten History", "description": "Secrets from the past resurfacing to cause challenges."}
+    ],
+  
+    "endings": [
+        {"name": "Happy Resolution", "description": "The problems are resolved and characters are content."},
+        {"name": "Lesson Learned", "description": "Characters learn an important lesson or moral."},
+        {"name": "Cliffhanger", "description": "The story ends on an unresolved note, leading to potential future adventures."},
+        {"name": "Triumphant Victory", "description": "Characters achieve their goals and celebrate."},
+        {"name": "Bittersweet Farewell", "description": "A mix of happiness and sadness as some goals are achieved but at a cost."},
+        {"name": "New Beginning", "description": "The end of the story marks the start of a new chapter or journey."},
+        {"name": "Friendship Strengthened", "description": "Characters end up with stronger bonds and friendships."},
+        {"name": "Reunion", "description": "Characters reunite after overcoming their challenges."},
+        {"name": "Transformation", "description": "Characters undergo significant personal growth or change."},
+        {"name": "Sacrifice", "description": "A character makes a significant sacrifice for the greater good."},
+        {"name": "Justice Served", "description": "The antagonist is defeated or justice is served."},
+        {"name": "Mystery Unveiled", "description": "All mysteries or secrets are revealed."},
+        {"name": "Return Home", "description": "Characters return home after their journey or adventure."},
+        {"name": "Dream Fulfilled", "description": "Characters achieve a long-held dream or aspiration."},
+        {"name": "Peace Restored", "description": "Harmony is restored in the world or community."},
+        {"name": "Unexpected Twist", "description": "The story ends with an unexpected or surprising turn of events."}
+    ],
+  
+    "questions": [
+        {"question": "Select Your Story's Type", "description": "Decide the type or overall theme for your story.", "input_prompt": "Describe the type or theme of your story.", "list" : "type"},
+        {"question": "Set Your Story's Location", "description": "Where will the events of your story unfold? Choose a setting.", "input_prompt": "Describe the setting of your story.", "list" : "type"},
+        {"question": "Create Your Hero", "description": "Who leads your story? Design your main character.", "input_prompt": "Describe your main character.", "list" : "main_character"},
+        {"question": "Craft Your Hero's Challenge", "description": "What major challenges will your hero face?", "input_prompt": "Describe the main challenges your hero faces.", "list" : "problems"},
+        {"question": "Invent the Solution", "description": "How will your hero overcome their challenges?", "input_prompt": "Describe how your hero solves their challenges.", "list" : "methods"},
+        {"question": "Empower Your Hero", "description": "What unique abilities will your hero possess?", "input_prompt": "Describe your hero's special abilities.", "list" : "abilities"},
+        {"question": "Design the Obstacles", "description": "What hurdles will your hero encounter along their journey?", "input_prompt": "Describe the obstacles your hero encounters.", "list" : "obstacles"},
+        {"question": "Explore Your Hero's Emotions", "description": "What feelings does your hero experience during their adventure?", "input_prompt": "Describe your hero's feelings about the adventure.", "list" : "feelings"},
+        {"question": "Develop the Opposition", "description": "Who or what stands in your hero's way? Create your antagonist.", "input_prompt": "Describe the antagonist or main challenge in your story.", "list" : "antagonists"},
+        {"question": "Conclude Your Tale", "description": "How does your story reach its finale? Imagine the ending.", "input_prompt": "Describe the ending of your story.", "list" : "endings"}
+    ]
+  
 }

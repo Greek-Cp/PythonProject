@@ -1,66 +1,28 @@
 {
-    "Action": {
-        "locations": {},
-        "subcategories": {}
+    "main_character": {},
+    "problems": {},
+    "methods": {
+        "seeking_help_from_friends": "methods\\1_seeking_help_from_friends.png",
+        "using_intelligence_and_wit": "methods\\2_using_intelligence_and_wit.png",
+        "embarking_on_a_quest": "methods\\3_embarking_on_a_quest.png",
+        "magical_or_supernatural_means": "methods\\4_magical_or_supernatural_means.png",
+        "building_or_inventing_something": "methods\\5_building_or_inventing_something.png",
+        "diplomacy_and_negotiation": "methods\\6_diplomacy_and_negotiation.png",
+        "physical_strength_or_bravery": "methods\\7_physical_strength_or_bravery.png",
+        "learning_new_skills": "methods\\8_learning_new_skills.png",
+        "persistence_and_perseverance": "methods\\9_persistence_and_perseverance.png",
+        "seeking_wisdom_from_elders_or_mentors": "methods\\10_seeking_wisdom_from_elders_or_mentors.png",
+        "stealth_and_cunning": "methods\\11_stealth_and_cunning.png",
+        "harnessing_natural_resources": "methods\\12_harnessing_natural_resources.png",
+        "inspiring_others_to_help": "methods\\13_inspiring_others_to_help.png",
+        "facing_fears_head-on": "methods\\14_facing_fears_head-on.png",
+        "using_humor_or_creativity": "methods\\15_using_humor_or_creativity.png",
+        "gathering_information_or_clues": "methods\\16_gathering_information_or_clues.png"
     },
-    "Adventure": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "AnimalStory": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "Comedy": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "FairyTale": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "Family": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "Fantasy": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "Friendship": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "HistoricalFiction": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "MoralStories": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "Mystery": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "SchoolLife": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "ScienceFiction": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "Sports": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "Superhero": {
-        "locations": {},
-        "subcategories": {}
-    },
-    "TimeTravel": {
-        "locations": {},
-        "subcategories": {}
-    }
+    "abilities": {},
+    "obstacles": {},
+    "feelings": {},
+    "antagonists": {},
+    "endings": {},
+    "questions": {}
 }

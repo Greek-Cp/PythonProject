@@ -3,732 +3,766 @@
         {
             "name": "Adventurous Explorer",
             "description": "Loves discovering new places and facing challenges.",
-            "image_assets": "assets\\main_character\\1_adventurous_explorer.png"
+            "image_assets": []
         },
         {
             "name": "Wise Wizard",
             "description": "Has magical powers and ancient knowledge.",
-            "image_assets": "assets\\main_character\\2_wise_wizard.png"
+            "image_assets": []
         },
         {
             "name": "Brave Knight",
             "description": "Fearless warrior with a noble heart.",
-            "image_assets": "assets\\main_character\\3_brave_knight.png"
+            "image_assets": []
         },
         {
             "name": "Curious Scientist",
             "description": "Enjoys experimenting and solving puzzles.",
-            "image_assets": "assets\\main_character\\4_curious_scientist.png"
+            "image_assets": []
         },
         {
             "name": "playful Animal",
             "description": "Playful and clever, often getting into funny situations.",
-            "image_assets": "assets\\main_character\\5_playful_animal.png"
+            "image_assets": []
         },
         {
             "name": "Inventive Genius",
             "description": "Creates amazing gadgets and solves problems.",
-            "image_assets": "assets\\main_character\\6_inventive_genius.png"
+            "image_assets": []
         },
         {
             "name": "Kind-hearted Princess",
             "description": "Caring and brave, ready to help others.",
-            "image_assets": "assets\\main_character\\7_kind-hearted_princess.png"
+            "image_assets": []
         },
         {
             "name": "Daring Detective",
             "description": "Solves mysteries and uncovers secrets.",
-            "image_assets": "assets\\main_character\\8_daring_detective.png"
+            "image_assets": []
         },
         {
             "name": "Fearless Superhero",
             "description": "Has special powers to fight evil and protect people.",
-            "image_assets": "assets\\main_character\\9_fearless_superhero.png"
+            "image_assets": []
         },
         {
             "name": "Friendly Robot",
             "description": "Artificial intelligence with a heart of gold.",
-            "image_assets": "assets\\main_character\\10_friendly_robot.png"
+            "image_assets": []
         },
         {
             "name": "Witty Comedian",
             "description": "Always making people laugh with jokes and pranks.",
-            "image_assets": "assets\\main_character\\11_witty_comedian.png"
+            "image_assets": []
         },
         {
             "name": "Skilled Athlete",
             "description": "Excels in sports and loves competition.",
-            "image_assets": "assets\\main_character\\12_skilled_athlete.png"
+            "image_assets": []
         },
         {
             "name": "Creative Artist",
             "description": "Expresses themselves through art and creativity.",
-            "image_assets": "assets\\main_character\\13_creative_artist.png"
+            "image_assets": []
         },
         {
             "name": "Intrepid Reporter",
             "description": "Always on the lookout for a big story.",
-            "image_assets": "assets\\main_character\\14_intrepid_reporter.png"
+            "image_assets": []
         },
         {
             "name": "Magical Creature",
             "description": "Enchanted being with special abilities.",
-            "image_assets": "assets\\main_character\\15_magical_creature.png"
+            "image_assets": []
         },
         {
             "name": "Space Explorer",
             "description": "Travels through space, discovering new worlds.",
-            "image_assets": "assets\\main_character\\16_space_explorer.png"
+            "image_assets": []
         },
         {
             "name": "Mystery Solver",
             "description": "Has a keen eye for detail and loves to solve puzzles.",
-            "image_assets": "assets\\main_character\\17_mystery_solver.png"
+            "image_assets": []
         },
         {
             "name": "Time Traveler",
             "description": "Journeys through different eras, experiencing historical events first-hand.",
-            "image_assets": "assets\\main_character\\18_time_traveler.png"
+            "image_assets": []
         },
         {
             "name": "Enchanted Mermaid",
             "description": "Lives in the ocean, has magical abilities, and explores underwater kingdoms.",
-            "image_assets": "assets\\main_character\\19_enchanted_mermaid.png"
+            "image_assets": []
         },
         {
             "name": "Young Inventor",
             "description": "A child genius who creates incredible machines and gadgets.",
-            "image_assets": "assets\\main_character\\20_young_inventor.png"
+            "image_assets": []
         },
         {
             "name": "Misunderstood Monster",
             "description": "Looks scary but has a kind heart, trying to find its place in the world.",
-            "image_assets": "assets\\main_character\\21_misunderstood_monster.png"
+            "image_assets": []
         },
         {
             "name": "Space Alien",
             "description": "Friendly and curious about Earth, trying to understand human ways.",
-            "image_assets": "assets\\main_character\\22_space_alien.png"
+            "image_assets": []
+        },
+        {
+            "name": "Magical Fairy",
+            "description": "Tiny and bright, with wings and magical powers, protector of nature.",
+            "image_assets": []
+        },
+        {
+            "name": "Ancient Warrior",
+            "description": "From a long-ago time, skilled in battle and wise in leadership.",
+            "image_assets": []
+        },
+        {
+            "name": "Magical Princess",
+            "description": "Uses powers for good and rules her kingdom wisely.",
+            "image_assets": []
+        },
+        {
+            "name": "Skilled Archer",
+            "description": "Embarks on adventures, showcasing archery skills.",
+            "image_assets": []
+        },
+        {
+            "name": "Eco Warrior",
+            "description": "Fights to protect the environment.",
+            "image_assets": []
+        },
+        {
+            "name": "Gifted Chef",
+            "description": "Cooks delicious meals and experiments with recipes.",
+            "image_assets": []
         }
     ],
     "problems": [
         {
             "name": "A Mysterious Disappearance",
             "description": "Someone or something important has vanished.",
-            "image_assets": "assets\\problems\\1_a_mysterious_disappearance.png"
+            "image_assets": []
         },
         {
             "name": "A Forbidden Quest",
             "description": "The character must undertake a dangerous journey.",
-            "image_assets": "assets\\problems\\2_a_forbidden_quest.png"
+            "image_assets": []
         },
         {
             "name": "An Ancient Curse",
             "description": "Dealing with a curse affecting their world.",
-            "image_assets": "assets\\problems\\3_an_ancient_curse.png"
+            "image_assets": []
         },
         {
             "name": "A Rival's Challenge",
             "description": "A competitor or rival is causing problems.",
-            "image_assets": "assets\\problems\\4_a_rival's_challenge.png"
+            "image_assets": []
         },
         {
             "name": "Lost Treasure",
             "description": "The search for a lost or hidden treasure.",
-            "image_assets": "assets\\problems\\5_lost_treasure.png"
+            "image_assets": []
         },
         {
             "name": "A Misunderstanding",
             "description": "A communication breakdown leading to conflict.",
-            "image_assets": "assets\\problems\\6_a_misunderstanding.png"
+            "image_assets": []
         },
         {
             "name": "A Natural Disaster",
             "description": "Facing a storm, earthquake, or other phenomena.",
-            "image_assets": "assets\\problems\\7_a_natural_disaster.png"
+            "image_assets": []
         },
         {
             "name": "An Environmental Crisis",
             "description": "Issues like pollution or endangered animals.",
-            "image_assets": "assets\\problems\\8_an_environmental_crisis.png"
+            "image_assets": []
         },
         {
             "name": "A Personal Fear or Doubt",
             "description": "Internal struggles and self-doubt.",
-            "image_assets": "assets\\problems\\9_a_personal_fear_or_doubt.png"
+            "image_assets": []
         },
         {
             "name": "A Broken Machine or Invention",
             "description": "Something important needs fixing.",
-            "image_assets": "assets\\problems\\10_a_broken_machine_or_invention.png"
+            "image_assets": []
         },
         {
             "name": "A Moral Dilemma",
             "description": "A tough decision questioning morals or ethics.",
-            "image_assets": "assets\\problems\\11_a_moral_dilemma.png"
+            "image_assets": []
         },
         {
             "name": "An Unexpected Transformation",
             "description": "Dealing with a sudden change.",
-            "image_assets": "assets\\problems\\12_an_unexpected_transformation.png"
+            "image_assets": []
         },
         {
             "name": "A Mischievous Antagonist",
             "description": "A troublesome character causing chaos.",
-            "image_assets": "assets\\problems\\13_a_mischievous_antagonist.png"
+            "image_assets": []
         },
         {
             "name": "A Threat to Their Home",
             "description": "Their home or community is in danger.",
-            "image_assets": "assets\\problems\\14_a_threat_to_their_home.png"
+            "image_assets": []
         },
         {
             "name": "A Secret to Uncover",
             "description": "There's a secret that needs to be revealed.",
-            "image_assets": "assets\\problems\\15_a_secret_to_uncover.png"
+            "image_assets": []
         },
         {
             "name": "Lost in a Strange Place",
             "description": "Lost or stranded in an unfamiliar location.",
-            "image_assets": "assets\\problems\\16_lost_in_a_strange_place.png"
+            "image_assets": []
         },
         {
             "name": "A Challenge to Prove Themselves",
             "description": "Facing doubts about their abilities.",
-            "image_assets": "assets\\problems\\17_a_challenge_to_prove_themselves.png"
+            "image_assets": []
         },
         {
             "name": "Balancing Responsibilities",
             "description": "Juggling multiple important tasks or roles.",
-            "image_assets": "assets\\problems\\18_balancing_responsibilities.png"
+            "image_assets": []
         },
         {
             "name": "Breaking Stereotypes",
             "description": "Overcoming societal expectations.",
-            "image_assets": "assets\\problems\\19_breaking_stereotypes.png"
+            "image_assets": []
+        },
+        {
+            "name": "Finding Their Voice",
+            "description": "Struggling to be heard in a male-dominated area.",
+            "image_assets": []
         }
-   
     ],
     "methods": [
         {
             "name": "Seeking Help from Friends",
             "description": "Relies on the support and assistance of friends.",
-            "image_assets": "assets\\methods\\1_seeking_help_from_friends.png"
+            "image_assets": []
         },
         {
             "name": "Using Intelligence and Wit",
             "description": "Solves the problem through clever thinking and strategies.",
-            "image_assets": "assets\\methods\\2_using_intelligence_and_wit.png"
+            "image_assets": []
         },
         {
             "name": "Embarking on a Quest",
             "description": "Undertakes a journey or quest to find a solution.",
-            "image_assets": "assets\\methods\\3_embarking_on_a_quest.png"
+            "image_assets": []
         },
         {
             "name": "Magical or Supernatural Means",
             "description": "Employs magical powers or supernatural aids.",
-            "image_assets": "assets\\methods\\4_magical_or_supernatural_means.png"
+            "image_assets": []
         },
         {
             "name": "Building or Inventing Something",
             "description": "Creates a gadget or tool to resolve the issue.",
-            "image_assets": "assets\\methods\\5_building_or_inventing_something.png"
+            "image_assets": []
         },
         {
             "name": "Diplomacy and Negotiation",
             "description": "Solves the problem through talking and negotiating.",
-            "image_assets": "assets\\methods\\6_diplomacy_and_negotiation.png"
+            "image_assets": []
         },
         {
             "name": "Physical Strength or Bravery",
             "description": "Uses physical prowess or bravery to overcome challenges.",
-            "image_assets": "assets\\methods\\7_physical_strength_or_bravery.png"
+            "image_assets": []
         },
         {
             "name": "Learning New Skills",
             "description": "Acquires new knowledge or skills crucial to solving the problem.",
-            "image_assets": "assets\\methods\\8_learning_new_skills.png"
+            "image_assets": []
         },
         {
             "name": "Persistence and Perseverance",
             "description": "Continuously tries and does not give up despite setbacks.",
-            "image_assets": "assets\\methods\\9_persistence_and_perseverance.png"
+            "image_assets": []
         },
         {
             "name": "Seeking Wisdom from Elders or Mentors",
             "description": "Gets advice from someone more experienced or wiser.",
-            "image_assets": "assets\\methods\\10_seeking_wisdom_from_elders_or_mentors.png"
+            "image_assets": []
         },
         {
             "name": "Stealth and Cunning",
             "description": "Uses stealthy methods or cunning plans to overcome obstacles.",
-            "image_assets": "assets\\methods\\11_stealth_and_cunning.png"
+            "image_assets": []
         },
         {
             "name": "Harnessing Natural Resources",
             "description": "Utilizes the natural environment or resources effectively.",
-            "image_assets": "assets\\methods\\12_harnessing_natural_resources.png"
+            "image_assets": []
         },
         {
             "name": "Inspiring Others to Help",
             "description": "Motivates or inspires others to contribute to the solution.",
-            "image_assets": "assets\\methods\\13_inspiring_others_to_help.png"
+            "image_assets": []
         },
         {
             "name": "Facing Fears Head-On",
             "description": "Confronts and overcomes personal fears or doubts.",
-            "image_assets": "assets\\methods\\14_facing_fears_head-on.png"
+            "image_assets": []
         },
         {
             "name": "Using Humor or Creativity",
             "description": "Solves problems through creative thinking or humor.",
-            "image_assets": "assets\\methods\\15_using_humor_or_creativity.png"
+            "image_assets": []
         },
         {
             "name": "Gathering Information or Clues",
             "description": "Conducts research or gathers information to understand the problem better.",
-            "image_assets": "assets\\methods\\16_gathering_information_or_clues.png"
+            "image_assets": []
         }
     ],
     "abilities": [
         {
             "name": "Magic Wand",
             "description": "A wand that can cast various magical spells.",
-            "image_assets": "assets\\abilities\\1_magic_wand.png"
+            "image_assets": []
         },
         {
             "name": "Invisibility Cloak",
             "description": "A cloak that renders the wearer invisible.",
-            "image_assets": "assets\\abilities\\2_invisibility_cloak.png"
+            "image_assets": []
         },
         {
             "name": "Time Machine",
             "description": "A device capable of traveling through time.",
-            "image_assets": "assets\\abilities\\3_time_machine.png"
+            "image_assets": []
         },
         {
             "name": "Flying Broomstick",
             "description": "A broomstick that allows the character to fly.",
-            "image_assets": "assets\\abilities\\4_flying_broomstick.png"
+            "image_assets": []
         },
         {
             "name": "Telepathy",
             "description": "The ability to read minds and communicate mentally.",
-            "image_assets": "assets\\abilities\\5_telepathy.png"
+            "image_assets": []
         },
         {
             "name": "Super Strength",
             "description": "Exceptional physical strength.",
-            "image_assets": "assets\\abilities\\6_super_strength.png"
+            "image_assets": []
         },
         {
             "name": "Shape-Shifting",
             "description": "The ability to change appearance at will.",
-            "image_assets": "assets\\abilities\\7_shape-shifting.png"
+            "image_assets": []
         },
         {
             "name": "Healing Powers",
             "description": "The ability to heal injuries or illnesses.",
-            "image_assets": "assets\\abilities\\8_healing_powers.png"
+            "image_assets": []
         },
         {
             "name": "Enchanted Sword",
             "description": "A powerful sword with magical properties.",
-            "image_assets": "assets\\abilities\\9_enchanted_sword.png"
+            "image_assets": []
         },
         {
             "name": "Animal Communication",
             "description": "The ability to talk to and understand animals.",
-            "image_assets": "assets\\abilities\\10_animal_communication.png"
+            "image_assets": []
         },
         {
             "name": "Infinite Knowledge",
             "description": "Access to vast amounts of knowledge.",
-            "image_assets": "assets\\abilities\\11_infinite_knowledge.png"
+            "image_assets": []
         },
         {
             "name": "Teleportation",
             "description": "The ability to instantly travel to different places.",
-            "image_assets": "assets\\abilities\\12_teleportation.png"
+            "image_assets": []
         },
         {
             "name": "Control over Elements",
             "description": "Power over natural elements like fire, water, air, and earth.",
-            "image_assets": "assets\\abilities\\13_control_over_elements.png"
+            "image_assets": []
         },
         {
             "name": "Super Speed",
             "description": "The ability to move incredibly fast.",
-            "image_assets": "assets\\abilities\\14_super_speed.png"
+            "image_assets": []
         },
         {
             "name": "X-Ray Vision",
             "description": "The power to see through solid objects.",
-            "image_assets": "assets\\abilities\\15_x-ray_vision.png"
+            "image_assets": []
         },
         {
             "name": "Genius Intellect",
             "description": "Exceptional intelligence and problem-solving skills.",
-            "image_assets": "assets\\abilities\\16_genius_intellect.png"
+            "image_assets": []
         },
         {
             "name": "Eternal Youth",
             "description": "The ability to remain young forever.",
-            "image_assets": "assets\\abilities\\17_eternal_youth.png"
+            "image_assets": []
         },
         {
             "name": "Invincibility",
             "description": "Immunity to all forms of physical harm.",
-            "image_assets": "assets\\abilities\\18_invincibility.png"
+            "image_assets": []
         }
     ],
     "obstacles": [
         {
             "name": "A Treacherous Journey",
             "description": "Difficult travels through dangerous terrains.",
-            "image_assets": "assets\\obstacles\\1_a_treacherous_journey.png"
+            "image_assets": []
         },
         {
             "name": "A Formidable Enemy",
             "description": "Confrontation with a powerful adversary.",
-            "image_assets": "assets\\obstacles\\2_a_formidable_enemy.png"
+            "image_assets": []
         },
         {
             "name": "A Difficult Puzzle",
             "description": "Solving a complex and challenging puzzle.",
-            "image_assets": "assets\\obstacles\\3_a_difficult_puzzle.png"
+            "image_assets": []
         },
         {
             "name": "A Test of Courage",
             "description": "Facing a situation that tests bravery.",
-            "image_assets": "assets\\obstacles\\4_a_test_of_courage.png"
+            "image_assets": []
         },
         {
             "name": "Betrayal",
             "description": "Dealing with the aftermath of a betrayal by a trusted ally.",
-            "image_assets": "assets\\obstacles\\5_betrayal.png"
+            "image_assets": []
         },
         {
             "name": "A Race Against Time",
             "description": "Completing a crucial task within a tight deadline.",
-            "image_assets": "assets\\obstacles\\6_a_race_against_time.png"
+            "image_assets": []
         },
         {
             "name": "Overcoming Fear",
             "description": "Confronting and overcoming personal fears.",
-            "image_assets": "assets\\obstacles\\7_overcoming_fear.png"
+            "image_assets": []
         },
         {
             "name": "A Moral Conflict",
             "description": "Making a tough decision in a morally ambiguous situation.",
-            "image_assets": "assets\\obstacles\\8_a_moral_conflict.png"
+            "image_assets": []
         },
         {
             "name": "Resource Scarcity",
             "description": "Surviving with limited resources.",
-            "image_assets": "assets\\obstacles\\9_resource_scarcity.png"
+            "image_assets": []
         },
         {
             "name": "Navigating Social Challenges",
             "description": "Handling complex social dynamics and relationships.",
-            "image_assets": "assets\\obstacles\\10_navigating_social_challenges.png"
+            "image_assets": []
         },
         {
             "name": "Environmental Hazards",
             "description": "Surviving in hazardous environmental conditions.",
-            "image_assets": "assets\\obstacles\\11_environmental_hazards.png"
+            "image_assets": []
         },
         {
             "name": "A Challenging Friendship",
             "description": "Dealing with a friendship that faces obstacles.",
-            "image_assets": "assets\\obstacles\\12_a_challenging_friendship.png"
+            "image_assets": []
         },
         {
             "name": "A Secret Identity",
             "description": "Maintaining a secret identity or double life.",
-            "image_assets": "assets\\obstacles\\13_a_secret_identity.png"
+            "image_assets": []
         },
         {
             "name": "A Quest for Redemption",
             "description": "Seeking redemption for past mistakes.",
-            "image_assets": "assets\\obstacles\\14_a_quest_for_redemption.png"
+            "image_assets": []
         },
         {
             "name": "Unraveling a Mystery",
             "description": "Uncovering the truth behind a deep mystery.",
-            "image_assets": "assets\\obstacles\\15_unraveling_a_mystery.png"
+            "image_assets": []
         },
         {
             "name": "A Battle of Wits",
             "description": "Engaging in a mental battle with a clever opponent.",
-            "image_assets": "assets\\obstacles\\16_a_battle_of_wits.png"
+            "image_assets": []
         },
         {
             "name": "An Internal Struggle",
             "description": "Dealing with internal conflicts or struggles.",
-            "image_assets": "assets\\obstacles\\17_an_internal_struggle.png"
+            "image_assets": []
         },
         {
             "name": "A Magical Curse",
             "description": "Overcoming the effects of a magical curse.",
-            "image_assets": "assets\\obstacles\\18_a_magical_curse.png"
+            "image_assets": []
         }
     ],
     "feelings": [
         {
             "name": "Excited and Curious",
             "description": "Eager to explore and discover new things.",
-            "image_assets": "assets\\feelings\\1_excited_and_curious.png"
+            "image_assets": []
         },
         {
             "name": "Nervous but Brave",
             "description": "A bit scared, but ready to face challenges.",
-            "image_assets": "assets\\feelings\\2_nervous_but_brave.png"
+            "image_assets": []
         },
         {
             "name": "Reluctant but Determined",
             "description": "Hesitant at first, but committed to seeing it through.",
-            "image_assets": "assets\\feelings\\3_reluctant_but_determined.png"
+            "image_assets": []
         },
         {
             "name": "Confident and Bold",
             "description": "Sure of themselves and ready for anything.",
-            "image_assets": "assets\\feelings\\4_confident_and_bold.png"
+            "image_assets": []
         },
         {
             "name": "Stressed but Persistent",
             "description": "Feeling the pressure but persisting regardless.",
-            "image_assets": "assets\\feelings\\5_stressed_but_persistent.png"
+            "image_assets": []
         },
         {
             "name": "Joyful and Adventurous",
             "description": "Finding joy in the thrill of adventure.",
-            "image_assets": "assets\\feelings\\6_joyful_and_adventurous.png"
+            "image_assets": []
         },
         {
             "name": "Cautious and Observant",
             "description": "Careful and always watching out for danger.",
-            "image_assets": "assets\\feelings\\7_cautious_and_observant.png"
+            "image_assets": []
         },
         {
             "name": "Skeptical but Open-Minded",
             "description": "Doubtful but willing to give it a chance.",
-            "image_assets": "assets\\feelings\\8_skeptical_but_open-minded.png"
+            "image_assets": []
         },
         {
             "name": "Dreamy and Imaginative",
             "description": "Lost in the wonder and possibilities of the journey.",
-            "image_assets": "assets\\feelings\\9_dreamy_and_imaginative.png"
+            "image_assets": []
         },
         {
             "name": "Focused and Serious",
             "description": "Concentrated on the goal, taking things seriously.",
-            "image_assets": "assets\\feelings\\10_focused_and_serious.png"
+            "image_assets": []
         },
         {
             "name": "Amused and Playful",
             "description": "Finding the fun and humor in the situation.",
-            "image_assets": "assets\\feelings\\11_amused_and_playful.png"
+            "image_assets": []
         },
         {
             "name": "Inquisitive and Thoughtful",
             "description": "Full of questions and deeply reflective.",
-            "image_assets": "assets\\feelings\\12_inquisitive_and_thoughtful.png"
+            "image_assets": []
         },
         {
             "name": "Anxious but Resourceful",
             "description": "Worried, but using their smarts to cope.",
-            "image_assets": "assets\\feelings\\13_anxious_but_resourceful.png"
+            "image_assets": []
         },
         {
             "name": "Loyal and Supportive",
             "description": "Standing by their friends and ready to help.",
-            "image_assets": "assets\\feelings\\14_loyal_and_supportive.png"
+            "image_assets": []
         },
         {
             "name": "Independent and Free-Spirited",
             "description": "Loving the freedom and making their own choices.",
-            "image_assets": "assets\\feelings\\15_independent_and_free-spirited.png"
+            "image_assets": []
         },
         {
             "name": "Empathetic and Caring",
             "description": "Concerned about others and wanting to help.",
-            "image_assets": "assets\\feelings\\16_empathetic_and_caring.png"
+            "image_assets": []
         }
     ],
     "antagonists": [
         {
             "name": "A Powerful Villain",
             "description": "A villain causing major trouble, regardless of their form.",
-            "image_assets": "assets\\antagonists\\1_a_powerful_villain.png"
+            "image_assets": []
         },
         {
             "name": "A Rival Team",
             "description": "A group of competitors or rivals posing a challenge.",
-            "image_assets": "assets\\antagonists\\2_a_rival_team.png"
+            "image_assets": []
         },
         {
             "name": "Nature's Fury",
             "description": "Natural events like storms or earthquakes causing havoc.",
-            "image_assets": "assets\\antagonists\\3_nature's_fury.png"
+            "image_assets": []
         },
         {
             "name": "A Mischievous Trickster",
             "description": "A character causing problems through cunning and tricks.",
-            "image_assets": "assets\\antagonists\\4_a_mischievous_trickster.png"
+            "image_assets": []
         },
         {
             "name": "An Alien Force",
             "description": "Extraterrestrial beings with mysterious intentions.",
-            "image_assets": "assets\\antagonists\\5_an_alien_force.png"
+            "image_assets": []
         },
         {
             "name": "A Corporate Giant",
             "description": "A large entity or corporation with conflicting interests.",
-            "image_assets": "assets\\antagonists\\6_a_corporate_giant.png"
+            "image_assets": []
         },
         {
             "name": "A Family Feud",
             "description": "Conflicts or challenges stemming from family issues.",
-            "image_assets": "assets\\antagonists\\7_a_family_feud.png"
+            "image_assets": []
         },
         {
             "name": "A Magical Curse",
             "description": "A curse bringing challenges or dangers.",
-            "image_assets": "assets\\antagonists\\8_a_magical_curse.png"
+            "image_assets": []
         },
         {
             "name": "A Secret Society",
             "description": "A group with secretive goals or hidden agendas.",
-            "image_assets": "assets\\antagonists\\9_a_secret_society.png"
+            "image_assets": []
         },
         {
             "name": "An Environmental Threat",
             "description": "Challenges arising from environmental issues or disasters.",
-            "image_assets": "assets\\antagonists\\10_an_environmental_threat.png"
+            "image_assets": []
         },
         {
             "name": "A Personal Struggle",
             "description": "Internal conflicts or struggles within the character.",
-            "image_assets": "assets\\antagonists\\11_a_personal_struggle.png"
+            "image_assets": []
         },
         {
             "name": "A Technological Glitch",
             "description": "Problems caused by malfunctioning or rogue technology.",
-            "image_assets": "assets\\antagonists\\12_a_technological_glitch.png"
+            "image_assets": []
         },
         {
             "name": "A Legendary Beast",
             "description": "A mythical or legendary creature posing a threat.",
-            "image_assets": "assets\\antagonists\\13_a_legendary_beast.png"
+            "image_assets": []
         },
         {
             "name": "A Forbidden Spell",
             "description": "A spell or magical act that has dangerous repercussions.",
-            "image_assets": "assets\\antagonists\\14_a_forbidden_spell.png"
+            "image_assets": []
         },
         {
             "name": "An Ancient Prophecy",
             "description": "A prophecy that foretells challenges or conflicts.",
-            "image_assets": "assets\\antagonists\\15_an_ancient_prophecy.png"
+            "image_assets": []
         },
         {
             "name": "A Lost Artifact",
             "description": "A search for a powerful and mysterious artifact.",
-            "image_assets": "assets\\antagonists\\16_a_lost_artifact.png"
+            "image_assets": []
         },
         {
             "name": "A Mystical Realm",
             "description": "Challenges arising from entering or interacting with a mystical world.",
-            "image_assets": "assets\\antagonists\\17_a_mystical_realm.png"
+            "image_assets": []
         },
         {
             "name": "A Forgotten History",
             "description": "Secrets from the past resurfacing to cause challenges.",
-            "image_assets": "assets\\antagonists\\18_a_forgotten_history.png"
+            "image_assets": []
         }
     ],
     "endings": [
         {
             "name": "Happy Resolution",
             "description": "The problems are resolved and characters are content.",
-            "image_assets": "assets\\endings\\1_happy_resolution.png"
+            "image_assets": []
         },
         {
             "name": "Lesson Learned",
             "description": "Characters learn an important lesson or moral.",
-            "image_assets": "assets\\endings\\2_lesson_learned.png"
+            "image_assets": []
         },
         {
             "name": "Cliffhanger",
             "description": "The story ends on an unresolved note, leading to potential future adventures.",
-            "image_assets": "assets\\endings\\3_cliffhanger.png"
+            "image_assets": []
         },
         {
             "name": "Triumphant Victory",
             "description": "Characters achieve their goals and celebrate.",
-            "image_assets": "assets\\endings\\4_triumphant_victory.png"
+            "image_assets": []
         },
         {
             "name": "Bittersweet Farewell",
             "description": "A mix of happiness and sadness as some goals are achieved but at a cost.",
-            "image_assets": "assets\\endings\\5_bittersweet_farewell.png"
+            "image_assets": []
         },
         {
             "name": "New Beginning",
             "description": "The end of the story marks the start of a new chapter or journey.",
-            "image_assets": "assets\\endings\\6_new_beginning.png"
+            "image_assets": []
         },
         {
             "name": "Friendship Strengthened",
             "description": "Characters end up with stronger bonds and friendships.",
-            "image_assets": "assets\\endings\\7_friendship_strengthened.png"
+            "image_assets": []
         },
         {
             "name": "Reunion",
             "description": "Characters reunite after overcoming their challenges.",
-            "image_assets": "assets\\endings\\8_reunion.png"
+            "image_assets": []
         },
         {
             "name": "Transformation",
             "description": "Characters undergo significant personal growth or change.",
-            "image_assets": "assets\\endings\\9_transformation.png"
+            "image_assets": []
         },
         {
             "name": "Sacrifice",
             "description": "A character makes a significant sacrifice for the greater good.",
-            "image_assets": "assets\\endings\\10_sacrifice.png"
+            "image_assets": []
         },
         {
             "name": "Justice Served",
             "description": "The antagonist is defeated or justice is served.",
-            "image_assets": "assets\\endings\\11_justice_served.png"
+            "image_assets": []
         },
         {
             "name": "Mystery Unveiled",
             "description": "All mysteries or secrets are revealed.",
-            "image_assets": "assets\\endings\\12_mystery_unveiled.png"
+            "image_assets": []
         },
         {
             "name": "Return Home",
             "description": "Characters return home after their journey or adventure.",
-            "image_assets": "assets\\endings\\13_return_home.png"
+            "image_assets": []
         },
         {
             "name": "Dream Fulfilled",
             "description": "Characters achieve a long-held dream or aspiration.",
-            "image_assets": "assets\\endings\\14_dream_fulfilled.png"
+            "image_assets": []
         },
         {
             "name": "Peace Restored",
             "description": "Harmony is restored in the world or community.",
-            "image_assets": "assets\\endings\\15_peace_restored.png"
+            "image_assets": []
         },
         {
             "name": "Unexpected Twist",
             "description": "The story ends with an unexpected or surprising turn of events.",
-            "image_assets": "assets\\endings\\16_unexpected_twist.png"
+            "image_assets": []
         }
     ],
     "questions": [

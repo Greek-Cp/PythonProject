@@ -1,0 +1,748 @@
+{
+    "type": {
+        "Action": {
+            "description": "Fast-paced with lots of movement and excitement.",
+            "locations": [
+                "Action City",
+                "Danger Zone",
+                "Thrilling Theme Park",
+                "Explosive Volcano",
+                "Chase City",
+                "Battlefield",
+                "Adventure Island",
+                "Spy Headquarters"
+            ],
+            "subcategories": [
+                "Brave Save",
+                "Fast Chase",
+                "Secret House",
+                "Spy Adventure",
+                "High-Speed Pursuits",
+                "Daring Rescue",
+                "Chase Scene",
+                "Hidden Fortress"
+            ],
+            "img_locations": [
+                "assets/story_assets/Action/Locations/1_action_city.png",
+                "assets/story_assets/Action/Locations/2_danger_zone.png",
+                "assets/story_assets/Action/Locations/3_thrilling_theme_park.png",
+                "assets/story_assets/Action/Locations/4_explosive_volcano.png",
+                "assets/story_assets/Action/Locations/5_chase_city.png",
+                "assets/story_assets/Action/Locations/6_battlefield.png",
+                "assets/story_assets/Action/Locations/7_adventure_island.png",
+                "assets/story_assets/Action/Locations/8_spy_headquarters.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/Action/Subcategories/1_brave_save.png",
+                "assets/story_assets/Action/Subcategories/2_fast_chase.png",
+                "assets/story_assets/Action/Subcategories/3_secret_house.png",
+                "assets/story_assets/Action/Subcategories/4_spy_adventure.png",
+                "assets/story_assets/Action/Subcategories/5_high-speed_pursuits.png",
+                "assets/story_assets/Action/Subcategories/6_daring_rescue.png",
+                "assets/story_assets/Action/Subcategories/7_chase_scene.png",
+                "assets/story_assets/Action/Subcategories/8_hidden_fortress.png"
+            ]
+        },
+        "Adventure": {
+            "description": "Exciting journeys, quests, or explorations.",
+            "locations": [
+                "Remote Island",
+                "Hidden Valley",
+                "Ancient Ruins",
+                "Deep Jungle",
+                "Mysterious Mountain",
+                "Desert Oasis",
+                "Lost City",
+                "Secret Cave",
+                "Ocean",
+                "Secret Valley"
+            ],
+            "subcategories": [
+                "Mountain Trip",
+                "Cold Arctic",
+                "Ancient City",
+                "Underwater World",
+                "Desert Odyssey",
+                "Mountain Expedition",
+                "Arctic Adventure",
+                "Lost Civilization"
+            ],
+            "img_locations": [
+                "assets/story_assets/Adventure/Locations/10_secret_valley.png",
+                "assets/story_assets/Adventure/Locations/1_remote_island.png",
+                "assets/story_assets/Adventure/Locations/2_hidden_valley.png",
+                "assets/story_assets/Adventure/Locations/3_ancient_ruins.png",
+                "assets/story_assets/Adventure/Locations/4_deep_jungle.png",
+                "assets/story_assets/Adventure/Locations/5_mysterious_mountain.png",
+                "assets/story_assets/Adventure/Locations/6_desert_oasis.png",
+                "assets/story_assets/Adventure/Locations/7_lost_city.png",
+                "assets/story_assets/Adventure/Locations/8_secret_cave.png",
+                "assets/story_assets/Adventure/Locations/9_ocean.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/Adventure/Subcategories/1_mountain_trip.png",
+                "assets/story_assets/Adventure/Subcategories/2_cold_arctic.png",
+                "assets/story_assets/Adventure/Subcategories/3_ancient_city.png",
+                "assets/story_assets/Adventure/Subcategories/4_underwater_world.png",
+                "assets/story_assets/Adventure/Subcategories/5_desert_odyssey.png",
+                "assets/story_assets/Adventure/Subcategories/6_mountain_expedition.png",
+                "assets/story_assets/Adventure/Subcategories/7_arctic_adventure.png",
+                "assets/story_assets/Adventure/Subcategories/8_lost_civilization.png"
+            ]
+        },
+        "Animal_Story": {
+            "description": "Animals as main characters, often with human-like behaviors.",
+            "locations": [
+                "Busy Farm",
+                "Animal Kingdom",
+                "Safari Park",
+                "Rainforest",
+                "Arctic Region",
+                "City Zoo",
+                "Wild Jungle",
+                "Coral Reef",
+                "Jurassic Jungle",
+                "Bird Sanctuary"
+            ],
+            "subcategories": [
+                "Wild Animals Land",
+                "Jungle Adventure",
+                "Cold Ice World",
+                "City Animals",
+                "Underwater Journey",
+                "Savannah Saga",
+                "Rainforest Mystery",
+                "Arctic Expedition"
+            ],
+            "img_locations": [
+                "assets/story_assets/AnimalStory/Locations/10_bird_sanctuary.png",
+                "assets/story_assets/AnimalStory/Locations/1_busy_farm.png",
+                "assets/story_assets/AnimalStory/Locations/2_animal_kingdom.png",
+                "assets/story_assets/AnimalStory/Locations/3_safari_park.png",
+                "assets/story_assets/AnimalStory/Locations/4_rainforest.png",
+                "assets/story_assets/AnimalStory/Locations/5_arctic_region.png",
+                "assets/story_assets/AnimalStory/Locations/6_city_zoo.png",
+                "assets/story_assets/AnimalStory/Locations/7_wild_jungle.png",
+                "assets/story_assets/AnimalStory/Locations/8_coral_reef.png",
+                "assets/story_assets/AnimalStory/Locations/9_jurassic_jungle.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/AnimalStory/Subcategories/1_wild_animals_land.png",
+                "assets/story_assets/AnimalStory/Subcategories/2_jungle_adventure.png",
+                "assets/story_assets/AnimalStory/Subcategories/3_cold_ice_world.png",
+                "assets/story_assets/AnimalStory/Subcategories/4_city_animals.png",
+                "assets/story_assets/AnimalStory/Subcategories/5_underwater_journey.png",
+                "assets/story_assets/AnimalStory/Subcategories/6_savannah_saga.png",
+                "assets/story_assets/AnimalStory/Subcategories/7_rainforest_mystery.png",
+                "assets/story_assets/AnimalStory/Subcategories/8_arctic_expedition.png"
+            ]
+        },
+        "Comedy": {
+            "description": "Light-hearted and humorous.",
+            "locations": [
+                "Funny Farm",
+                "Holiday Camp",
+                "Circus",
+                "Comical School",
+                "Laughing Town",
+                "Amusing Park",
+                "Joke Jungle"
+            ],
+            "subcategories": [
+                "Funny Stories",
+                "Holiday Fun",
+                "School Laughs",
+                "Silly Neighbors",
+                "Everyday Humor",
+                "Comical Misadventures",
+                "Hilarious Holidays",
+                "Laugh-Out-Loud School"
+            ],
+            "img_locations": [
+                "assets/story_assets/Comedy/Locations/1_funny_farm.png",
+                "assets/story_assets/Comedy/Locations/2_holiday_camp.png",
+                "assets/story_assets/Comedy/Locations/3_circus.png",
+                "assets/story_assets/Comedy/Locations/4_comical_school.png",
+                "assets/story_assets/Comedy/Locations/5_laughing_town.png",
+                "assets/story_assets/Comedy/Locations/6_amusing_park.png",
+                "assets/story_assets/Comedy/Locations/7_joke_jungle.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/Comedy/Subcategories/1_funny_stories.png",
+                "assets/story_assets/Comedy/Subcategories/2_holiday_fun.png",
+                "assets/story_assets/Comedy/Subcategories/3_school_laughs.png",
+                "assets/story_assets/Comedy/Subcategories/4_silly_neighbors.png",
+                "assets/story_assets/Comedy/Subcategories/5_everyday_humor.png",
+                "assets/story_assets/Comedy/Subcategories/6_comical_misadventures.png",
+                "assets/story_assets/Comedy/Subcategories/7_hilarious_holidays.png",
+                "assets/story_assets/Comedy/Subcategories/8_laugh-out-loud_school.png"
+            ]
+        },
+        "Fairy_Tale": {
+            "description": "Classic tales with magical elements.",
+            "locations": [
+                "Enchanted Forest",
+                "Magical Kingdom",
+                "Royal Garden",
+                "Giant's Castle",
+                "Giant Tree",
+                "Crystal Lake",
+                "Fairy Village",
+                "Tower in the Clouds",
+                "Mystical Cave",
+                "Miniature town"
+            ],
+            "subcategories": [
+                "Giant Home",
+                "Secret Town",
+                "Magic Palace",
+                "Small House in the Woods",
+                "Magical Forest",
+                "Giant's Castle",
+                "Hidden Village",
+                "Cursed Palace"
+            ],
+            "img_locations": [
+                "assets/story_assets/FairyTale/Locations/10_miniature_town.png",
+                "assets/story_assets/FairyTale/Locations/1_enchanted_forest.png",
+                "assets/story_assets/FairyTale/Locations/2_magical_kingdom.png",
+                "assets/story_assets/FairyTale/Locations/3_royal_garden.png",
+                "assets/story_assets/FairyTale/Locations/4_giant's_castle.png",
+                "assets/story_assets/FairyTale/Locations/5_giant_tree.png",
+                "assets/story_assets/FairyTale/Locations/6_crystal_lake.png",
+                "assets/story_assets/FairyTale/Locations/7_fairy_village.png",
+                "assets/story_assets/FairyTale/Locations/8_tower_in_the_clouds.png",
+                "assets/story_assets/FairyTale/Locations/9_mystical_cave.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/FairyTale/Subcategories/1_giant_home.png",
+                "assets/story_assets/FairyTale/Subcategories/2_secret_town.png",
+                "assets/story_assets/FairyTale/Subcategories/3_magic_palace.png",
+                "assets/story_assets/FairyTale/Subcategories/4_small_house_in_the_woods.png",
+                "assets/story_assets/FairyTale/Subcategories/5_magical_forest.png",
+                "assets/story_assets/FairyTale/Subcategories/6_giant's_castle.png",
+                "assets/story_assets/FairyTale/Subcategories/7_hidden_village.png",
+                "assets/story_assets/FairyTale/Subcategories/8_cursed_palace.png"
+            ]
+        },
+        "Family": {
+            "description": "Centered around family dynamics.",
+            "locations": [
+                "Family Home",
+                "Grandparents' Farm",
+                "Ancestral Village",
+                "Holiday Retreat",
+                "Beach House",
+                "Mountain Lodge",
+                "City Apartment",
+                "Countryside Cottage"
+            ],
+            "subcategories": [
+                "Family Trip",
+                "Grandma and Grandpa",
+                "Brothers and Sisters",
+                "Family Party",
+                "Holiday Celebrations",
+                "Family Road Trip",
+                "Grandparents' Stories",
+                "Sibling Rivalry"
+            ],
+            "img_locations": [
+                "assets/story_assets/Family/Locations/1_family_home.png",
+                "assets/story_assets/Family/Locations/2_grandparents'_farm.png",
+                "assets/story_assets/Family/Locations/3_ancestral_village.png",
+                "assets/story_assets/Family/Locations/4_holiday_retreat.png",
+                "assets/story_assets/Family/Locations/5_beach_house.png",
+                "assets/story_assets/Family/Locations/6_mountain_lodge.png",
+                "assets/story_assets/Family/Locations/7_city_apartment.png",
+                "assets/story_assets/Family/Locations/8_countryside_cottage.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/Family/Subcategories/1_family_trip.png",
+                "assets/story_assets/Family/Subcategories/2_grandma_and_grandpa.png",
+                "assets/story_assets/Family/Subcategories/3_brothers_and_sisters.png",
+                "assets/story_assets/Family/Subcategories/4_family_party.png",
+                "assets/story_assets/Family/Subcategories/5_holiday_celebrations.png",
+                "assets/story_assets/Family/Subcategories/6_family_road_trip.png",
+                "assets/story_assets/Family/Subcategories/7_grandparents'_stories.png",
+                "assets/story_assets/Family/Subcategories/8_sibling_rivalry.png"
+            ]
+        },
+        "Fantasy": {
+            "description": "Set in magical realms with mythical creatures.",
+            "locations": [
+                "Magic Kingdom",
+                "Wizard's Tower",
+                "Elf Village",
+                "Floating Islands",
+                "Forbidden Forest",
+                "Crystal Caverns",
+                "Celestial City",
+                "Mystic Mountains",
+                "Hidden World",
+                "Lost City",
+                "Enchanted Valley"
+            ],
+            "subcategories": [
+                "Stars and Planets",
+                "Lost Land",
+                "Magic Valley",
+                "Dark Place",
+                "Enchanted Realms",
+                "Celestial Journey",
+                "Forgotten Realm",
+                "Mystic Valley"
+            ],
+            "img_locations": [
+                "assets/story_assets/Fantasy/Locations/10_lost_city.png",
+                "assets/story_assets/Fantasy/Locations/11_enchanted_valley.png",
+                "assets/story_assets/Fantasy/Locations/1_magic_kingdom.png",
+                "assets/story_assets/Fantasy/Locations/2_wizard's_tower.png",
+                "assets/story_assets/Fantasy/Locations/3_elf_village.png",
+                "assets/story_assets/Fantasy/Locations/4_floating_islands.png",
+                "assets/story_assets/Fantasy/Locations/5_forbidden_forest.png",
+                "assets/story_assets/Fantasy/Locations/6_crystal_caverns.png",
+                "assets/story_assets/Fantasy/Locations/7_celestial_city.png",
+                "assets/story_assets/Fantasy/Locations/8_mystic_mountains.png",
+                "assets/story_assets/Fantasy/Locations/9_hidden_world.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/Fantasy/Subcategories/1_stars_and_planets.png",
+                "assets/story_assets/Fantasy/Subcategories/2_lost_land.png",
+                "assets/story_assets/Fantasy/Subcategories/3_magic_valley.png",
+                "assets/story_assets/Fantasy/Subcategories/4_dark_place.png",
+                "assets/story_assets/Fantasy/Subcategories/5_enchanted_realms.png",
+                "assets/story_assets/Fantasy/Subcategories/6_celestial_journey.png",
+                "assets/story_assets/Fantasy/Subcategories/7_forgotten_realm.png",
+                "assets/story_assets/Fantasy/Subcategories/8_mystic_valley.png"
+            ]
+        },
+        "Friendship": {
+            "description": "Focusing on the value of friends and relationships.",
+            "locations": [
+                "Friendly Neighborhood",
+                "Happy School",
+                "Summer Camp",
+                "Best Friends' House",
+                "Community Center",
+                "Playful Playground",
+                "Treehouse Club",
+                "Friendship Beach",
+                "Fun Fair"
+            ],
+            "subcategories": [
+                "Camp Friends",
+                "Friends Next Door",
+                "New Kid in Town",
+                "School Team",
+                "Unexpected Friendships",
+                "Summer Camp",
+                "Neighborhood Adventures",
+                "Mysterious New Friend"
+            ],
+            "img_locations": [
+                "assets/story_assets/Friendship/Locations/1_friendly_neighborhood.png",
+                "assets/story_assets/Friendship/Locations/2_happy_school.png",
+                "assets/story_assets/Friendship/Locations/3_summer_camp.png",
+                "assets/story_assets/Friendship/Locations/4_best_friends'_house.png",
+                "assets/story_assets/Friendship/Locations/5_community_center.png",
+                "assets/story_assets/Friendship/Locations/6_playful_playground.png",
+                "assets/story_assets/Friendship/Locations/7_treehouse_club.png",
+                "assets/story_assets/Friendship/Locations/8_friendship_beach.png",
+                "assets/story_assets/Friendship/Locations/9_fun_fair.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/Friendship/Subcategories/1_camp_friends.png",
+                "assets/story_assets/Friendship/Subcategories/2_friends_next_door.png",
+                "assets/story_assets/Friendship/Subcategories/3_new_kid_in_town.png",
+                "assets/story_assets/Friendship/Subcategories/4_school_team.png",
+                "assets/story_assets/Friendship/Subcategories/5_unexpected_friendships.png",
+                "assets/story_assets/Friendship/Subcategories/6_summer_camp.png",
+                "assets/story_assets/Friendship/Subcategories/7_neighborhood_adventures.png",
+                "assets/story_assets/Friendship/Subcategories/8_mysterious_new_friend.png"
+            ]
+        },
+        "Historical_Fiction": {
+            "description": "Set in a specific historical period with fictional elements.",
+            "locations": [
+                "Ancient Empire",
+                "Historic Town",
+                "Old City",
+                "Ancient Caravan",
+                "Historic Battlefield",
+                "Castle",
+                "Ship",
+                "Desert Island"
+            ],
+            "subcategories": [
+                "Old Art World",
+                "New Land Story",
+                "Big Machines Time",
+                "Pirates' Sea",
+                "Ancient Egypt",
+                "Ancient China",
+                "Ancient Japan",
+                "Roman Empire",
+                "Viking Age",
+                "Feudal Japan",
+                "Mughal Empire",
+                "Mali empire",
+                "Ancient Greece",
+                "Celts",
+                "Ottomans",
+                "Byzantium",
+                "Venetians",
+                "Mayan Civilization"
+            ],
+            "img_locations": [
+                "assets/story_assets/HistoricalFiction/Locations/1_ancient_empire.png",
+                "assets/story_assets/HistoricalFiction/Locations/2_historic_town.png",
+                "assets/story_assets/HistoricalFiction/Locations/3_old_city.png",
+                "assets/story_assets/HistoricalFiction/Locations/4_ancient_caravan.png",
+                "assets/story_assets/HistoricalFiction/Locations/5_historic_battlefield.png",
+                "assets/story_assets/HistoricalFiction/Locations/6_castle.png",
+                "assets/story_assets/HistoricalFiction/Locations/7_ship.png",
+                "assets/story_assets/HistoricalFiction/Locations/8_desert_island.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/HistoricalFiction/Subcategories/10_feudal_japan.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/11_mughal_empire.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/12_mali_empire.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/13_ancient_greece.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/14_celts.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/15_ottomans.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/16_byzantium.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/17_venetians.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/18_mayan_civilization.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/1_old_art_world.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/2_new_land_story.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/3_big_machines_time.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/4_pirates'_sea.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/5_ancient_egypt.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/6_ancient_china.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/7_ancient_japan.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/8_roman_empire.png",
+                "assets/story_assets/HistoricalFiction/Subcategories/9_viking_age.png"
+            ]
+        },
+        "Moral_Stories": {
+            "description": "With a clear moral or lesson.",
+            "locations": [
+                "Peaceful Village",
+                "Busy City",
+                "Mountain",
+                "Oasis",
+                "Island",
+                "Forest",
+                "Wild Jungle",
+                "Snowy Plains",
+                "Ancient Caravan"
+            ],
+            "subcategories": [
+                "Sharing is Caring",
+                "Telling the Truth",
+                "Be Brave",
+                "Patience",
+                "Respect",
+                "Responsibility",
+                "The Gift of Giving",
+                "Truth Triumphs"
+            ],
+            "img_locations": [
+                "assets/story_assets/MoralStories/Locations/1_peaceful_village.png",
+                "assets/story_assets/MoralStories/Locations/2_busy_city.png",
+                "assets/story_assets/MoralStories/Locations/3_mountain.png",
+                "assets/story_assets/MoralStories/Locations/4_oasis.png",
+                "assets/story_assets/MoralStories/Locations/5_island.png",
+                "assets/story_assets/MoralStories/Locations/6_forest.png",
+                "assets/story_assets/MoralStories/Locations/7_wild_jungle.png",
+                "assets/story_assets/MoralStories/Locations/8_snowy_plains.png",
+                "assets/story_assets/MoralStories/Locations/9_ancient_caravan.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/MoralStories/Subcategories/1_sharing_is_caring.png",
+                "assets/story_assets/MoralStories/Subcategories/2_telling_the_truth.png",
+                "assets/story_assets/MoralStories/Subcategories/3_be_brave.png",
+                "assets/story_assets/MoralStories/Subcategories/4_patience.png",
+                "assets/story_assets/MoralStories/Subcategories/5_respect.png",
+                "assets/story_assets/MoralStories/Subcategories/6_responsibility.png",
+                "assets/story_assets/MoralStories/Subcategories/7_the_gift_of_giving.png",
+                "assets/story_assets/MoralStories/Subcategories/8_truth_triumphs.png"
+            ]
+        },
+        "Mystery": {
+            "description": "Puzzles or secrets to be solved.",
+            "locations": [
+                "Old Mansion",
+                "Abandoned Factory",
+                "Secluded Village",
+                "Mystery Train",
+                "Secret Library",
+                "Haunted School",
+                "Deserted Island",
+                "Mystic Museum"
+            ],
+            "subcategories": [
+                "Old Time Capsule",
+                "Vanishing Trick",
+                "Hidden Door",
+                "Secret Island",
+                "Mystery",
+                "Disappearing Act",
+                "Secret Passage"
+            ],
+            "img_locations": [
+                "assets/story_assets/Mystery/Locations/1_old_mansion.png",
+                "assets/story_assets/Mystery/Locations/2_abandoned_factory.png",
+                "assets/story_assets/Mystery/Locations/3_secluded_village.png",
+                "assets/story_assets/Mystery/Locations/4_mystery_train.png",
+                "assets/story_assets/Mystery/Locations/5_secret_library.png",
+                "assets/story_assets/Mystery/Locations/6_haunted_school.png",
+                "assets/story_assets/Mystery/Locations/7_deserted_island.png",
+                "assets/story_assets/Mystery/Locations/8_mystic_museum.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/Mystery/Subcategories/1_old_time_capsule.png",
+                "assets/story_assets/Mystery/Subcategories/2_vanishing_trick.png",
+                "assets/story_assets/Mystery/Subcategories/3_hidden_door.png",
+                "assets/story_assets/Mystery/Subcategories/4_secret_island.png",
+                "assets/story_assets/Mystery/Subcategories/5_mystery.png",
+                "assets/story_assets/Mystery/Subcategories/6_disappearing_act.png",
+                "assets/story_assets/Mystery/Subcategories/7_secret_passage.png"
+            ]
+        },
+        "School_Life": {
+            "description": "Set in or around a school environment.",
+            "locations": [
+                "Happy High School",
+                "Creative Elementary",
+                "Museum",
+                "Sport Centre",
+                "Art School",
+                "Science Institute",
+                "Train",
+                "Treck Trail",
+                "Zoo"
+            ],
+            "subcategories": [
+                "New Kid in Class",
+                "School Trip",
+                "Play at School",
+                "Science Day",
+                "Teacher Tales",
+                "New Teacher",
+                "Field Trip Fiasco",
+                "Sports Day",
+                "School Holidays",
+                "School Play Drama"
+            ],
+            "img_locations": [
+                "assets/story_assets/SchoolLife/Locations/1_happy_high_school.png",
+                "assets/story_assets/SchoolLife/Locations/2_creative_elementary.png",
+                "assets/story_assets/SchoolLife/Locations/3_museum.png",
+                "assets/story_assets/SchoolLife/Locations/4_sport_centre.png",
+                "assets/story_assets/SchoolLife/Locations/5_art_school.png",
+                "assets/story_assets/SchoolLife/Locations/6_science_institute.png",
+                "assets/story_assets/SchoolLife/Locations/7_train.png",
+                "assets/story_assets/SchoolLife/Locations/8_treck_trail.png",
+                "assets/story_assets/SchoolLife/Locations/9_zoo.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/SchoolLife/Subcategories/10_school_play_drama.png",
+                "assets/story_assets/SchoolLife/Subcategories/1_new_kid_in_class.png",
+                "assets/story_assets/SchoolLife/Subcategories/2_school_trip.png",
+                "assets/story_assets/SchoolLife/Subcategories/3_play_at_school.png",
+                "assets/story_assets/SchoolLife/Subcategories/4_science_day.png",
+                "assets/story_assets/SchoolLife/Subcategories/5_teacher_tales.png",
+                "assets/story_assets/SchoolLife/Subcategories/6_new_teacher.png",
+                "assets/story_assets/SchoolLife/Subcategories/7_field_trip_fiasco.png",
+                "assets/story_assets/SchoolLife/Subcategories/8_sports_day.png",
+                "assets/story_assets/SchoolLife/Subcategories/9_school_holidays.png"
+            ]
+        },
+        "Science_Fiction": {
+            "description": "Exploring futuristic or space-related themes.",
+            "locations": [
+                "Space Station",
+                "Alien Planet",
+                "Future World",
+                "Futuristic City",
+                "Robot Factory",
+                "Time Machine",
+                "Virtual Reality",
+                "Distant Galaxy",
+                "Robot City",
+                "Underground Bunker"
+            ],
+            "subcategories": [
+                "Computer World",
+                "Space People",
+                "Time Jump",
+                "Future Earth",
+                "Intergalactic War",
+                "Cyberworld",
+                "Galactic Federation",
+                "Quantum Leap"
+            ],
+            "img_locations": [
+                "assets/story_assets/ScienceFiction/Locations/10_underground_bunker.png",
+                "assets/story_assets/ScienceFiction/Locations/1_space_station.png",
+                "assets/story_assets/ScienceFiction/Locations/2_alien_planet.png",
+                "assets/story_assets/ScienceFiction/Locations/3_future_world.png",
+                "assets/story_assets/ScienceFiction/Locations/4_futuristic_city.png",
+                "assets/story_assets/ScienceFiction/Locations/5_robot_factory.png",
+                "assets/story_assets/ScienceFiction/Locations/6_time_machine.png",
+                "assets/story_assets/ScienceFiction/Locations/7_virtual_reality.png",
+                "assets/story_assets/ScienceFiction/Locations/8_distant_galaxy.png",
+                "assets/story_assets/ScienceFiction/Locations/9_robot_city.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/ScienceFiction/Subcategories/1_computer_world.png",
+                "assets/story_assets/ScienceFiction/Subcategories/2_space_people.png",
+                "assets/story_assets/ScienceFiction/Subcategories/3_time_jump.png",
+                "assets/story_assets/ScienceFiction/Subcategories/4_future_earth.png",
+                "assets/story_assets/ScienceFiction/Subcategories/5_intergalactic_war.png",
+                "assets/story_assets/ScienceFiction/Subcategories/6_cyberworld.png",
+                "assets/story_assets/ScienceFiction/Subcategories/7_galactic_federation.png",
+                "assets/story_assets/ScienceFiction/Subcategories/8_quantum_leap.png"
+            ]
+        },
+        "Sports": {
+            "description": "Centered around sports or athletic competitions.",
+            "locations": [
+                "Olympic Stadium",
+                "Football Field",
+                "Basketball Court",
+                "Skate Park",
+                "Swimming Pool",
+                "Racing Track",
+                "Fitness Center",
+                "Gymnastics Arena",
+                "Baseball Diamond"
+            ],
+            "subcategories": [
+                "Big Soccer Game",
+                "Olympic Heroes",
+                "Winner's Story",
+                "Big Match",
+                "Extreme Challenges",
+                "World Cup Journey",
+                "Olympic Dreams",
+                "Underdog Story"
+            ],
+            "img_locations": [
+                "assets/story_assets/Sports/Locations/1_olympic_stadium.png",
+                "assets/story_assets/Sports/Locations/2_football_field.png",
+                "assets/story_assets/Sports/Locations/3_basketball_court.png",
+                "assets/story_assets/Sports/Locations/4_skate_park.png",
+                "assets/story_assets/Sports/Locations/5_swimming_pool.png",
+                "assets/story_assets/Sports/Locations/6_racing_track.png",
+                "assets/story_assets/Sports/Locations/7_fitness_center.png",
+                "assets/story_assets/Sports/Locations/8_gymnastics_arena.png",
+                "assets/story_assets/Sports/Locations/9_baseball_diamond.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/Sports/Subcategories/1_big_soccer_game.png",
+                "assets/story_assets/Sports/Subcategories/2_olympic_heroes.png",
+                "assets/story_assets/Sports/Subcategories/3_winner's_story.png",
+                "assets/story_assets/Sports/Subcategories/4_big_match.png",
+                "assets/story_assets/Sports/Subcategories/5_extreme_challenges.png",
+                "assets/story_assets/Sports/Subcategories/6_world_cup_journey.png",
+                "assets/story_assets/Sports/Subcategories/7_olympic_dreams.png",
+                "assets/story_assets/Sports/Subcategories/8_underdog_story.png"
+            ]
+        },
+        "Superhero": {
+            "description": "Characters with superpowers or extraordinary abilities.",
+            "locations": [
+                "Superhero City",
+                "Secret Base",
+                "Hidden Fortress",
+                "Dangerous Streets",
+                "Mysterious Island",
+                "Alien World",
+                "Parallel Universe",
+                "High-Tech Facility",
+                "Abandoned Warehouse",
+                "Underground Base",
+                "Parallel World",
+                "Underwater City"
+            ],
+            "subcategories": [
+                "Invisible Adventure",
+                "Another World",
+                "Ancient Magic",
+                "Secret Place",
+                "Galactic Guardians",
+                "Invisible Forces",
+                "Parallel Dimensions",
+                "Ancient Powers"
+            ],
+            "img_locations": [
+                "assets/story_assets/Superhero/Locations/10_underground_base.png",
+                "assets/story_assets/Superhero/Locations/11_parallel_world.png",
+                "assets/story_assets/Superhero/Locations/12_underwater_city.png",
+                "assets/story_assets/Superhero/Locations/1_superhero_city.png",
+                "assets/story_assets/Superhero/Locations/2_secret_base.png",
+                "assets/story_assets/Superhero/Locations/3_hidden_fortress.png",
+                "assets/story_assets/Superhero/Locations/4_dangerous_streets.png",
+                "assets/story_assets/Superhero/Locations/5_mysterious_island.png",
+                "assets/story_assets/Superhero/Locations/6_alien_world.png",
+                "assets/story_assets/Superhero/Locations/7_parallel_universe.png",
+                "assets/story_assets/Superhero/Locations/8_high-tech_facility.png",
+                "assets/story_assets/Superhero/Locations/9_abandoned_warehouse.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/Superhero/Subcategories/1_invisible_adventure.png",
+                "assets/story_assets/Superhero/Subcategories/2_another_world.png",
+                "assets/story_assets/Superhero/Subcategories/3_ancient_magic.png",
+                "assets/story_assets/Superhero/Subcategories/4_secret_place.png",
+                "assets/story_assets/Superhero/Subcategories/5_galactic_guardians.png",
+                "assets/story_assets/Superhero/Subcategories/6_invisible_forces.png",
+                "assets/story_assets/Superhero/Subcategories/7_parallel_dimensions.png",
+                "assets/story_assets/Superhero/Subcategories/8_ancient_powers.png"
+            ]
+        },
+        "Time_Travel": {
+            "description": "Characters traveling through time.",
+            "locations": [
+                "Ancient Egypt",
+                "Medieval Times",
+                "Future City",
+                "Pirate Age",
+                "Wild West",
+                "Space Age",
+                "Jungle"
+            ],
+            "subcategories": [
+                "Old-Fashioned Times",
+                "City of the Future",
+                "Alternate Timelines",
+                "Medieval Quest",
+                "Victorian Era",
+                "Stone Age",
+                "Pirate Age",
+                "Dinosaur Era"
+            ],
+            "img_locations": [
+                "assets/story_assets/TimeTravel/Locations/1_ancient_egypt.png",
+                "assets/story_assets/TimeTravel/Locations/2_medieval_times.png",
+                "assets/story_assets/TimeTravel/Locations/3_future_city.png",
+                "assets/story_assets/TimeTravel/Locations/4_pirate_age.png",
+                "assets/story_assets/TimeTravel/Locations/5_wild_west.png",
+                "assets/story_assets/TimeTravel/Locations/6_space_age.png",
+                "assets/story_assets/TimeTravel/Locations/7_jungle.png"
+            ],
+            "img_subcategories": [
+                "assets/story_assets/TimeTravel/Subcategories/1_old-fashioned_times.png",
+                "assets/story_assets/TimeTravel/Subcategories/2_city_of_the_future.png",
+                "assets/story_assets/TimeTravel/Subcategories/3_alternate_timelines.png",
+                "assets/story_assets/TimeTravel/Subcategories/4_medieval_quest.png",
+                "assets/story_assets/TimeTravel/Subcategories/5_victorian_era.png",
+                "assets/story_assets/TimeTravel/Subcategories/6_stone_age.png",
+                "assets/story_assets/TimeTravel/Subcategories/7_pirate_age.png",
+                "assets/story_assets/TimeTravel/Subcategories/8_dinosaur_era.png"
+            ]
+        }
+    }
+}
