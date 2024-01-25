@@ -2,10 +2,10 @@ import os
 import json
 
 # Path ke direktori utama
-base_path = "D:\\sd.webui\\webui\\outputs\\txt2img-images\\2023-12-29\\StoryType"
+base_path = "D:\sd.webui\webui\outputs\txt2img-images\2023-12-29\main_character"
 
 # Baca data JSON
-with open('story_types.json', 'r') as json_file:
+with open('books_read_ai\story_types.json', 'r') as json_file:
     story_types = json.load(json_file)
 
 # Fungsi untuk mengganti spasi dengan underscore dan membuat huruf kecil
